@@ -58,7 +58,7 @@ if ( ! class_exists( 'BACheetahLoader' ) ) {
 
 			define( 'BA_CHEETAH_FILE', trailingslashit( dirname( dirname( __FILE__ ) ) ) . 'ba-cheetah.php' );
 
-			$plugin_data = get_plugin_data(BA_CHEETAH_FILE);
+			$plugin_data = get_plugin_data(BA_CHEETAH_FILE, true, false);
 			$plugin_version = $plugin_data['Version'];
 			define( 'BA_CHEETAH_VERSION', $plugin_version );
 

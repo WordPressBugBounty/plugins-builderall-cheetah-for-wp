@@ -4,7 +4,7 @@
  * Plugin Name: Builderall Builder for WP
  * Plugin URI: https://builderall.com
  * Description: A complete drag and drop page builder integrated with Builderall tools
- * Version: 2.0.4
+ * Version: 2.0.5
  * Author: Builderall Team
  * Author URI: https://builderall.com
  * Copyright: (c) 2021 Builderall Builder for WP

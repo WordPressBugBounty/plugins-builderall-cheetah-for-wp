@@ -2,9 +2,9 @@
 Contributors: leandrogrando, mauriciotesta, silvioyamada, fmazetti, geovanacoelhoc, fmezzomo
 Tags: page builder, cheetah, cheetah builder for wordpress, builderall wp, drag and drop editor
 Requires at least: 4.6
-Tested up to: 6.4.3
+Tested up to: 6.7.1
 Requires PHP: 5.6
-Stable tag: 2.0.4
+Stable tag: 2.0.5
 License: GPL2+
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -125,6 +125,9 @@ If you're not a Builderall customer yet, explore our universe of possibilities a
 6. Activating Canvas Mode
 
 == Changelog ==
+= 2.0.5 =
+* Added support to WordPress 6.7.1
+
 = 2.0.4 =
 * Performance improvement in Supercheckout element
 
