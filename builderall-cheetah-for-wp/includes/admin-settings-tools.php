@@ -21,6 +21,9 @@
 	<hr />
 
 	<?php
+
+	$settings = get_option( '_ba_cheetah_general_settings' );
+	$canvasCheked = ($settings) ? ($settings['canvas-mode'] == 1) ? 'checked="checked"' : '' : 'checked="checked"';
 	/*
 	if ( version_compare( PHP_VERSION, '5.3.0', '>' ) && class_exists( '\BACheetahCacheClear\Plugin' ) ) {
 		include BA_CHEETAH_CACHE_HELPER_DIR . 'includes/admin-settings-cache-plugins.php';
@@ -60,4 +63,16 @@
 			<?php wp_nonce_field( 'debug', 'ba-cheetah-debug-nonce' ); ?>
 		</p>
 	</form>
+	<hr />
+				
+	<form id="editing-form" action="<?php BACheetahAdminSettings::render_form_action( 'tools' ); ?>" method="post">
+
+
+		<h3 class="ba-cheetah-settings-form-header"><?= __('Canvas Mode', 'ba-cheetah'); ?></h3>
+		<label><input type="checkbox" name="ba-cheetah-canvas-mode" value="1" <?php echo $canvasCheked; ?> /><?php echo __('Create new pages in canvas mode', 'ba-cheetah'); ?></label>
+		<p class="submit">
+			<input type="submit" name="update" class="button-primary" value="<?php esc_attr_e( 'Save Changes', 'ba-cheetah' ); ?>" />
+			<?php wp_nonce_field( 'ba-general-config', 'ba-cheetah-canvas-settings-nonce' ); ?>
+		</p>
+		</form>
 </div>

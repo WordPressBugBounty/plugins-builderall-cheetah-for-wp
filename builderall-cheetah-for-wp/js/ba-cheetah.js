@@ -807,6 +807,7 @@
 			$('body').delegate('.ba-cheetah-layout-settings .ba-cheetah-settings-cancel', 'click', BACheetah._cancelLayoutSettingsClicked);
 			$('body').delegate('.ba-cheetah-global-settings-button', 'click', BACheetah._globalSettingsClicked);
 			$('body').delegate('.ba-cheetah-set-page-template-button', 'click', BACheetah._pageSettingsClicked);
+			$('body').delegate('.ba-cheetah-supercharge-bundle-panel', 'click', BACheetah._superchargePanelClicked);
 			$('body').delegate('.ba-cheetah-global-settings .ba-cheetah-settings-save', 'click', BACheetah._saveGlobalSettingsClicked);
 			$('body').delegate('.ba-cheetah-page-settings .ba-cheetah-settings-save', 'click', BACheetah._savePageSettingsClicked);
 			$('body').delegate('.ba-cheetah-global-settings .ba-cheetah-settings-cancel', 'click', BACheetah._cancelLayoutSettingsClicked);
@@ -1939,6 +1940,68 @@
 				BACheetah._initLayoutPartsSelect();
 				BACheetah._layoutSettingsInitCSS();
 			});
+		},
+
+
+		/**
+		 * Shows the page settings lightbox when the global
+		 * settings button is clicked.
+		 *
+
+		 * @access private
+		 * @method _globalSettingsClicked
+		 */
+		_superchargePanelClicked: function () {
+			const template = wp.template('ba-cheetah-supercharge-bundle-panel');
+			BACheetah._showLightbox(template);
+			$('.ba-cheetah--supercharge-bundle-panel .accordion-toggle' ).on( 'click', this._collapseSuperchargePannel);
+			$('.ba-cheetah--supercharge-bundle-panel .page-popups-trigger' ).on( 'click', this._openSettingsTab);
+		},
+
+		_collapseSuperchargePannel: function() {
+			var cardContainer = $(this).closest('.tool-card').find('.card-container');
+			var arrow = $(this).find('svg');
+			var toolTop = $(this).closest('.tool-card').find('.tool-top');
+			var animationDuration = 200;
+			if (cardContainer.is(':visible')) {
+				cardContainer.slideUp(animationDuration);
+				arrow.css('transform', 'rotate(180deg)');
+				setTimeout(function() {
+					toolTop.css('border-radius', '15px 15px 15px 15px');
+				}, animationDuration);
+			} else {
+				cardContainer.slideDown(animationDuration);
+				arrow.css('transform', 'rotate(0deg)');
+				setTimeout(function() {
+					toolTop.css('border-radius', '15px 15px 0px 0px');
+				}, 10);
+			}
+		},
+
+		_openSettingsTab: function() {
+			BACheetah._pageSettingsClicked();
+
+			let attempts = 0;
+			const interval = setInterval(function() {
+				const tabLink = $('.ba-cheetah-settings-tabs a[href="#ba-cheetah-settings-tab-general"]');
+
+				if (tabLink.length > 0) {
+					tabLink.click();
+					setTimeout(function () {
+						const tabContent = $('.ba-cheetah-nanoscroller-content');
+
+						tabContent.css('overflow-y', 'auto');
+
+						if (tabContent.length > 0) {
+							tabContent.animate({ scrollTop: tabContent[0].scrollHeight }, 600);
+						}
+					}, 500);
+					clearInterval(interval); 
+				}
+
+				attempts++;
+				if (attempts > 5) clearInterval(interval); 
+			}, 100);
 		},
 
 		/**
@@ -7336,6 +7399,8 @@
 				if ( ! changed && ! disableClose ) {
 					lightbox.close();
 				}
+			} else {
+				lightbox.close();
 			}
 
 			if ( ! valid ) {

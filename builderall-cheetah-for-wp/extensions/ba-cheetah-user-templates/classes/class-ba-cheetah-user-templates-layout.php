@@ -40,8 +40,26 @@ final class BACheetahUserTemplatesLayout
 		add_action('admin_enqueue_scripts', __CLASS__ . '::styles_scripts');
 
 		add_action('admin_head-post.php', __CLASS__ . '::save_post_before_open_editor');
+		add_action('admin_notices', __CLASS__. '::show_back_link');
 	}
 
+	public static function show_back_link() {
+		$screen = get_current_screen();
+		if ( ! $screen ) return;
+	
+		$allowed_ids = [
+			'edit-ba-cheetah-header',
+			'edit-ba-cheetah-footer',
+			'edit-ba-cheetah-popup',
+			'edit-ba-cheetah-template',
+		];
+	
+		if ( in_array( $screen->id, $allowed_ids, true ) ) {
+			echo '<div class="notice notice-info" style="padding: 0; border: none; background: none; box-shadow: none;">';
+			echo '<a href="' . admin_url( 'admin.php?page=ba-cheetah-settings#welcome' ) . '">&lt; ' . __( 'Back to Page Builder', 'ba-cheetah' ) . '</a>';
+			echo '</div>';
+		}		
+	}
 	public static function save_post_before_open_editor()
 	{
 		global $post;
@@ -311,7 +329,7 @@ final class BACheetahUserTemplatesLayout
 
 		$can_edit = BACheetahUserAccess::current_user_can('unrestricted_editing');
 
-		$show_in_menu = 'ba-cheetah-settings';
+		$show_in_menu = false;
 
 		register_post_type(
 			'ba-cheetah-header',

@@ -4039,6 +4039,110 @@ button.ba-cheetah-button.ba-cheetah-bar-title-caret:focus {
 /* @group User Template Editing
 ------------------------------------------------------ */
 /* @endgroup User Template Editing */
+.ba-cheetah--supercharge-bundle-panel {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center !important;
+}
+.ba-cheetah--supercharge-bundle-panel .supercharge-title {
+  display: flex !important;
+  align-items: start !important;
+  padding: 15px 0px 15px 0px !important;
+  width: 100% !important;
+  border-bottom: 1px solid #c6d4e8 !important;
+}
+.ba-cheetah--supercharge-bundle-panel .supercharge-title h2 {
+  font-weight: 700 !important;
+  color: #0072E1 !important;
+  font-size: 16px !important;
+  margin-left: 35px;
+}
+.ba-cheetah--supercharge-bundle-panel .supercharge-card-content:nth-child(2) {
+  background: linear-gradient(90deg, rgba(89, 186, 255, 0.38) 0%, #FFFFFF 100%) !important;
+}
+.ba-cheetah--supercharge-bundle-panel .supercharge-card-content:nth-child(3) {
+  background: linear-gradient(90deg, #C9C4DA 0%, #FFFFFF 100%) !important;
+}
+.ba-cheetah--supercharge-bundle-panel .supercharge-card-content:nth-child(4) {
+  background: linear-gradient(90deg, rgba(254, 85, 48, 0.5) 0%, #FFFFFF 100%) !important;
+}
+.ba-cheetah--supercharge-bundle-panel .supercharge-card-content:last-child {
+  background: linear-gradient(90deg, rgba(1, 253, 194, 0.36) 0%, #FFFFFF 100%) !important;
+}
+.ba-cheetah--supercharge-bundle-panel .supercharge-card-content {
+  width: 80% !important;
+  border: 1px solid #BED1EA !important;
+  border-radius: 16px !important;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) !important;
+  margin-top: 20px;
+}
+.ba-cheetah--supercharge-bundle-panel .supercharge-card-content .tool-card .tool-top {
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+  border-radius: 15px 15px 0px 0px;
+}
+.ba-cheetah--supercharge-bundle-panel .supercharge-card-content .tool-card .tool-top .accordion-toggle {
+  background-color: transparent;
+  margin-right: 10px;
+  cursor: pointer;
+  border: none;
+  padding: 0px !important;
+  outline: none !important;
+  color: #0072e1;
+}
+.ba-cheetah--supercharge-bundle-panel .supercharge-card-content .tool-card .tool-top span {
+  margin-left: 1rem !important;
+  font-size: 14px;
+  color: #0072e1 !important;
+  font-weight: 700 !important;
+}
+.ba-cheetah--supercharge-bundle-panel .supercharge-card-content .tool-card .tool-card-content {
+  display: flex;
+  gap: 1rem;
+  margin-top: 18px;
+  justify-content: space-around;
+}
+.ba-cheetah--supercharge-bundle-panel .supercharge-card-content .tool-card .tool-card-content .icon {
+  height: 30px;
+  width: 30px;
+  box-sizing: border-box;
+}
+.ba-cheetah--supercharge-bundle-panel .supercharge-card-content .tool-card .tool-card-content .tool-card-description {
+  max-width: 52%;
+  font-weight: 700;
+}
+.ba-cheetah--supercharge-bundle-panel .supercharge-card-content .tool-card .tool-card-footer {
+  margin-top: 2rem;
+  padding-bottom: 1rem;
+}
+.ba-cheetah--supercharge-bundle-panel .supercharge-card-content .tool-card .tool-card-footer a, .ba-cheetah--supercharge-bundle-panel .supercharge-card-content .tool-card .tool-card-footer button {
+  background-color: #0072e1 !important;
+  border-radius: 6px !important;
+  text-decoration: none !important;
+  padding: 10px 12px 10px 12px !important;
+  border: none !important;
+  width: 33% !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 1rem;
+  gap: 10px;
+}
+.ba-cheetah--supercharge-bundle-panel .supercharge-card-content .tool-card .tool-card-footer a span, .ba-cheetah--supercharge-bundle-panel .supercharge-card-content .tool-card .tool-card-footer button span {
+  font-weight: 700;
+  color: white !important;
+}
+.ba-cheetah--supercharge-bundle-panel .supercharge-card-content .tool-card .tool-card-footer a:hover, .ba-cheetah--supercharge-bundle-panel .supercharge-card-content .tool-card .tool-card-footer button:hover {
+  cursor: pointer;
+}
+.ba-cheetah--supercharge-bundle-panel .supercharge-card-content:last-child {
+  margin-bottom: 30px;
+}
+
 /* @group jQuery UI */
 /* Resizable
 ------------------------------------------------------ */

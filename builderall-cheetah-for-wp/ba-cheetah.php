@@ -1,13 +1,13 @@
 <?php
 
 /**
- * Plugin Name: Builderall Builder for WP
+ * Plugin Name: Builderall for WordPress
  * Plugin URI: https://builderall.com
  * Description: A complete drag and drop page builder integrated with Builderall tools
- * Version: 2.0.5
+ * Version: 3.0.0
  * Author: Builderall Team
  * Author URI: https://builderall.com
- * Copyright: (c) 2021 Builderall Builder for WP
+ * Copyright: (c) 2025 Builderall for WordPress
  * License: GNU General Public License v2.0
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain: ba-cheetah

@@ -313,6 +313,7 @@
             BACheetah.addHook('duplicateLayout', this.duplicateLayout.bind(this));
             BACheetah.addHook('showLayoutSettings', this.showLayoutSettings.bind(this));
             BACheetah.addHook('showGlobalSettings', this.showGlobalSettings.bind(this));
+            BACheetah.addHook('showSuperchargeBundle', this.showSuperchargeBundle.bind(this));
             BACheetah.addHook('showPageSettings', this.showPageSettings.bind(this));
 			BACheetah.addHook('startTour', this.startTour.bind(this));
             BACheetah.addHook('toggleUISkin', this.toggleUISkin.bind(this));
@@ -363,6 +364,15 @@
         */
         showGlobalSettings: function() {
             BACheetah._globalSettingsClicked();
+            MainMenuPanel.hide();
+        },
+
+        /**
+        * Show the supercharge bundle lightbox
+        * @return void
+        */
+        showSuperchargeBundle: function() {
+			BACheetah._superchargePanelClicked();
             MainMenuPanel.hide();
         },
 

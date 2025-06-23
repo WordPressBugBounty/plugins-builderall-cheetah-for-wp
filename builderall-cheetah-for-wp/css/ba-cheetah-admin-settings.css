@@ -1,5 +1,8 @@
 /* Heading
 ----------------------------------------------------------- */
+.ba-cheetah-settings-heading{
+	margin-top: 15px;
+}
 
 .ba-cheetah-settings-heading img {
 	height: 40px;
@@ -8,6 +11,9 @@
 }
 .ba-cheetah-settings-heading span {
 	vertical-align: middle;
+	font-weight: 300;
+	font-size: 27px;
+	color: #2C3338;
 }
 
 /* Nav
@@ -71,11 +77,11 @@
 ----------------------------------------------------------- */
 
 .ba-cheetah-settings-form {
-	display: none;
 	max-width: 450px;
 }
 .ba-cheetah-settings-form-header {
 	margin-bottom: 20px !important;
+	padding-left: 50px !important;
 }
 .ba-cheetah-settings-form .form-table {
 	margin: 12px 0;
@@ -90,9 +96,7 @@
 	font-weight: normal;
 	padding: 5px;
 }
-.ba-cheetah-settings-form-content {
-	display: none;
-}
+
 .ba-cheetah-settings-network-admin .ba-cheetah-settings-form-content,
 .ba-cheetah-settings-single-install .ba-cheetah-settings-form-content {
 	display: block;
@@ -152,11 +156,26 @@ body .ms-options-wrap > .ms-options > ul input[type="checkbox"] {
 /* Welcome Page
 ----------------------------------------------------------- */
 
-#ba-cheetah-welcome-form {
+#ba-cheetah-welcome-form, #ba-cheetah-supercharge-form, #ba-cheetah-account-form, #ba-cheetah-general-form {
 	max-width: none;
 }
+#ba-cheetah-general-form .ba-cheetah-settings-form-header,
+#ba-cheetah-pro-form .ba-cheetah-settings-form-header,
+#ba-cheetah-post-types-form .ba-cheetah-settings-form-header,
+#ba-cheetah-integrations-form .ba-cheetah-settings-form-header,
+#ba-cheetah-tools-form .ba-cheetah-settings-form-header{
+	padding: 0px !important;
+}
+
+#ba-cheetah-general-form  .ba-cheetah-welcome-page-content{
+	padding: 0px !important;
+
+}
+
+
+
 .ba-cheetah-welcome-page-content {
-	max-width: 880px;
+	padding: 0px 50px;
 }
 .ba-cheetah-upgrade-page-content ul,
 .ba-cheetah-welcome-page-content ul {
@@ -407,4 +426,303 @@ body .ms-options-wrap > .ms-options > ul input[type="checkbox"] {
 
 #integrations-form hr {
 	margin: 25px 0;
+}
+#account-form{
+	margin-top: 25px;
+}
+.supercharge-panel{
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+.ba-mg-t-1{
+	margin-top: 1rem;
+}
+.ba-w-70{
+	max-width: 70%;
+}
+.ba-jc-center{
+	display: flex;
+	justify-content: center;
+}
+.ba-ai-center{
+	display: flex;
+	align-items: center;
+}
+
+.ba-text-ai-center{
+	text-align: center;
+}
+.ba-text-width{
+	max-width: 77%;
+}
+
+#supercharge-form, #account-form{
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.supercharge-buttons {
+	display: flex;
+	gap: 1rem;
+}
+
+.supercharge-buttons a {
+	padding: 1rem 3rem 1rem 3rem;
+	border: none;
+	border-radius: 8px;
+	color: white;
+	text-decoration: none;
+	min-width: 170px;
+	text-align: center;
+}
+
+.supercharge-buttons a:first-child {
+	background-color: #9851C2 !important;
+}
+
+.supercharge-buttons a:last-child {
+	background-color: #0072E1 !important;
+}
+
+.supercharge-buttons .unlink {
+	background-color: #9851C2 !important;
+}
+
+.ba-tooltip {
+	position: relative;
+	cursor: pointer;
+  }
+  
+  .ba-tooltip-text {
+	visibility: hidden;
+	background-color: #333;
+	color: #fff;
+	padding: 6px 10px;
+	border-radius: 4px;
+	position: absolute;
+	z-index: 999;
+	top: 120%;
+	left: 50%;
+	transform: translateX(-50%);
+	white-space: nowrap;
+	opacity: 0;
+	transition: opacity 0.2s ease;
+  }
+  
+  .ba-tooltip:hover .ba-tooltip-text {
+	visibility: visible;
+	opacity: 1;
+  }
+  
+  .ba-switch {
+	position: relative;
+	display: inline-block;
+	width: 30px;
+	height: 18px;
+  }
+
+  .ba-switch input[type=checkbox]:checked::before{
+	content: none !important;
+  }
+  
+  .ba-switch input {
+	opacity: 0;
+	width: 0;
+	height: 0;
+  }
+  
+  .ba-slider {
+	position: absolute;
+	cursor: pointer;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: #ccc;
+	transition: 0.4s;
+	border-radius: 24px;
+  }
+  
+  .ba-slider:before {
+	position: absolute;
+	content: "";
+	height: 12px;
+	width: 12px;
+	left: 3px;
+	bottom: 3px;
+	background-color: white;
+	transition: 0.4s;
+	border-radius: 50%;
+  }
+  
+  .ba-switch input:checked + .ba-slider {
+	background-color: #20E4B3;
+  }
+  
+  .ba-switch input:checked + .ba-slider:before {
+	transform: translateX(12px);
+  }
+
+  .ba-switch-box{
+	background-color: white;
+	border-radius: 16px;
+	padding: 10px 10px 10px 10px ;
+	width: max-content;
+  }
+  
+.supercharge-status{
+	color: #4D5D71 !important;
+	font-weight: 600;
+}
+.ba-font-syne{
+	font-family: syne !important;
+}
+.ba-font-21{
+	font-size: 21px !important;
+}
+.ba-font-29{
+	font-size: 29px !important;
+}
+.ba-font-bold{
+	font-weight: 600 !important;
+}
+.ba-font-extrabold{
+	font-weight: 700 !important;
+
+}
+.supercharge-account-panel{
+	width: 80%;
+	max-width: 1450px;
+	text-align: center;
+	line-height: 150%;
+}
+
+.ba-cheetah--supercharge-bundle-panel {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	width: 70%;
+	gap: 30px;
+	align-items: center;
+  }
+  
+  .ba-cheetah--supercharge-bundle-panel .supercharge-title {
+	display: flex;
+	align-items: start;
+	padding: 15px 0;
+	width: 100%;
+	border-bottom: 1px solid rgba(198, 212, 232, 1);
+  }
+  
+  .ba-cheetah--supercharge-bundle-panel .supercharge-title h2 {
+	font-weight: 700;
+	color: #0072E1;
+	font-size: 16px;
+	margin-left: 35px;
+  }
+  
+  .ba-cheetah--supercharge-bundle-panel .supercharge-card-content:nth-child(1) {
+	background: linear-gradient(90deg, rgba(89, 186, 255, 0.38) 0%, #FFFFFF 100%);
+  }
+  
+  .ba-cheetah--supercharge-bundle-panel .supercharge-card-content:nth-child(2) {
+	background: linear-gradient(90deg, #C9C4DA 0%, #FFFFFF 100%);
+  }
+  
+  .ba-cheetah--supercharge-bundle-panel .supercharge-card-content:nth-child(3) {
+	background: linear-gradient(90deg, rgba(254, 85, 48, 0.5) 0%, #FFFFFF 100%);
+  }
+  
+  .ba-cheetah--supercharge-bundle-panel .supercharge-card-content:last-child {
+	background: linear-gradient(90deg, rgba(1, 253, 194, 0.36) 0%, #FFFFFF 100%);
+  }
+  
+  .ba-cheetah--supercharge-bundle-panel .supercharge-card-content {
+	width: 320px;
+	border: 1px solid #BED1EA;
+	border-radius: 16px;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	margin-top: 20px;
+  }
+  
+  .ba-cheetah--supercharge-bundle-panel .tool-card .tool-top {
+	height: 2.5rem;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	background-color: white;
+	border-radius: 15px 15px 0 0;
+  }
+  
+  .ba-cheetah--supercharge-bundle-panel .tool-card .tool-top .accordion-toggle {
+	background-color: transparent;
+	margin-right: 10px;
+	cursor: pointer;
+	border: none;
+	padding: 0;
+	outline: none;
+	color: rgba(0, 114, 225, 1);
+  }
+  
+  .ba-cheetah--supercharge-bundle-panel .tool-card .tool-top span {
+	margin-left: 1rem;
+	font-size: 14px;
+	color: rgb(0, 114, 225);
+	font-weight: 700;
+  }
+  
+  .ba-cheetah--supercharge-bundle-panel .tool-card .tool-card-content {
+	display: flex;
+	gap: 1rem;
+	margin-top: 18px;
+	justify-content: space-around;
+  }
+  
+  .ba-cheetah--supercharge-bundle-panel .tool-card .tool-card-content .icon {
+	height: 30px;
+	width: 30px;
+	box-sizing: border-box;
+  }
+  
+  .ba-cheetah--supercharge-bundle-panel .tool-card .tool-card-content .tool-card-description {
+	max-width: 52%;
+	font-weight: 700;
+  }
+  
+  .ba-cheetah--supercharge-bundle-panel .tool-card .tool-card-footer {
+	margin-top: 2rem;
+	padding-bottom: 1rem;
+  }
+  
+  .ba-cheetah--supercharge-bundle-panel .tool-card .tool-card-footer a,
+  .ba-cheetah--supercharge-bundle-panel .tool-card .tool-card-footer button {
+	background-color: rgba(0, 114, 225, 1);
+	border-radius: 6px;
+	text-decoration: none;
+	padding: 10px 12px;
+	border: none;
+	width: 33%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-left: 1rem;
+	gap: 10px;
+  }
+  
+  .ba-cheetah--supercharge-bundle-panel .tool-card .tool-card-footer a span,
+  .ba-cheetah--supercharge-bundle-panel .tool-card .tool-card-footer button span {
+	font-weight: 700;
+	color: white;
+  }
+  
+  .ba-cheetah--supercharge-bundle-panel .tool-card .tool-card-footer a:hover,
+  .ba-cheetah--supercharge-bundle-panel .tool-card .tool-card-footer button:hover {
+	cursor: pointer;
+  }
+  
+
+.toplevel_page_ba-cheetah-settings .wp-submenu-wrap li:last-child{
+	display: none !important;
 }

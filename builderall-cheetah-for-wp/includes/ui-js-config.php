@@ -228,7 +228,7 @@ echo 'BACheetahStrings             = ' . BACheetahUtils::json_encode( apply_filt
 	'schemaAllRequiredMessage'       => esc_attr__( 'All Structured Data fields are required.', 'ba-cheetah' ),
 	'visitForums'                    => esc_attr__( 'Contact Support', 'ba-cheetah' ),
 	'watchHelpVideo'                 => esc_attr__( 'Watch the Video', 'ba-cheetah' ),
-	'welcome'	                     => esc_attr__( 'Welcome to Builderall Builder for Wordpress!', 'ba-cheetah' ),
+	'welcome'	                     => esc_attr__( 'Welcome to Builderall for WordPress!', 'ba-cheetah' ),
 	'welcomeMessage'                 => esc_attr__( 'Click Start to learn the basic features of the builder', 'ba-cheetah' ),
 	'widget'                         => esc_attr__( 'Widget', 'ba-cheetah' ),
 	'widgetsCategoryTitle'           => esc_attr__( 'WordPress Widgets', 'ba-cheetah' ),
@@ -307,7 +307,7 @@ echo 'BACheetahStrings             = ' . BACheetahUtils::json_encode( apply_filt
 		__('The token has expired!', 'ba-cheetah'),
 		__('Please, pay for Pro access before active it! If you already paid, contact the support!', 'ba-cheetah'),
 		__('The Token does not match, is it correct? Please, try again!', 'ba-cheetah'),
-		__('We do not have notice that this user has bought Builderall Builder for Wordpress. If you have bought it, try again later or contact our support team!', 'ba-cheetah'),
+		__('We do not have notice that this user has bought Builderall for WordPress. If you have bought it, try again later or contact our support team!', 'ba-cheetah'),
 		__('Please, pay for Pro access before active it! If you already paid, contact the support!', 'ba-cheetah'),
     ),
 ) ) ) . ';';

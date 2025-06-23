@@ -1,20 +1,4 @@
 <div id="ba-cheetah-integrations-form" class="ba-cheetah-settings-form">
-	<h3 class="ba-cheetah-settings-form-header"><?= __('Builderall', 'ba-cheetah'); ?></h3>
-	
-	<?php
-	$user = BACheetahAuthentication::user();
-	$showLinkButton = $showUnlinkButton = false;
-	if ($user) {
-		$showUnlinkButton = true;
-	}
-	else {
-		$showLinkButton = true;
-	}
-	?>
-	<?php if ($user) : ?>
-		<p><?php printf(__('Your Builderall Builder for Wordpress is linked to the Builderall account <b> %s </b> and you are able to use all Builderall Modules.', 'ba-cheetah'), esc_html($user['email'])); ?></p>
-	<?php endif; ?>
-	
 
 	<!-- 
 		Form
@@ -29,6 +13,7 @@
 		<?php 
 		
 		if (BACheetahAuthentication::is_builderall_user()) :
+			echo '<h3 class="ba-cheetah-settings-form-header">' . __('Builderall', 'ba-cheetah') . '</h3>';
 			$watermark = get_option( '_ba_cheetah_watermark', array('show' => false, 'position' => 'left') );
 		?>
 		<table class="form-table">
@@ -48,6 +33,7 @@
 				</td>
 			</tr>
 		</table>
+		<hr>
 
 		<?php endif;?>
 
@@ -56,22 +42,6 @@
 		-->
 
 
-		<?php if ($showUnlinkButton) : ?>
-		<p>
-			<div class="buttons">
-				<a href="<?= get_rest_url(null, 'ba-cheetah/v1/oauth/logout'); ?>" class="button button-primary" onclick="return confirm('<?= __('By unlinking your account you will lose access to all Builderall Integrations, do you want to continue?', 'ba-cheetah'); ?>')"><?= __('Unlink with my Builderall account', 'ba-cheetah'); ?></a>
-			</div>
-		</p>
-		<?php elseif($showLinkButton) : ?>
-			<p>
-				<?= __('Link your Builderall Builder for WordPress with your Builderall account to unlock integrations with Booking, Supercheckout, Mailingboss and more!'); ?></p><p>
-				<div class="buttons">
-					<a href="<?= get_rest_url(null, 'ba-cheetah/v1/oauth/redirect'); ?>" class="button button-primary"><?= __("Link with my Builderall account", 'ba-cheetah'); ?></a>
-				</div>
-			</p>
-		<?php endif;?>
-
-		<hr>
 
 		<!-- 
 			Recaptcha

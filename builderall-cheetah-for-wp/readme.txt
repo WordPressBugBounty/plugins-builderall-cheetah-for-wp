@@ -1,115 +1,28 @@
-=== Builderall Builder for Wordpress ===
-Contributors: leandrogrando, mauriciotesta, silvioyamada, fmazetti, geovanacoelhoc, fmezzomo
+=== Builderall for WordPress ===
+Contributors: leandrogrando, mauriciotesta, silvioyamada, fmazetti, geovanacoelhoc, fmezzomo, wesleivid, guilhermebenso 
 Tags: page builder, cheetah, cheetah builder for wordpress, builderall wp, drag and drop editor
 Requires at least: 4.6
 Tested up to: 6.7.1
 Requires PHP: 5.6
-Stable tag: 2.0.5
+Stable tag: 3.0.0
 License: GPL2+
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-A complete drag and drop page builder integrated with Builderall tools
+Bring Builderall’s powerful tools to your WordPress site a drag and drop page builder, popups, social proof, and more.
+
 
 == Description ==
-Builderall Builder for Wordpress is an intuitive page builder based on Builderall's Builder. You can now create impressive and responsive pages with drag and drop functionality.
-Create your own header and footer, pop ups, and take advantage of our numerous elements and unique integrations with Builderall apps.
+**Supercharge your WordPress site with Builderall.**
+This plugin connects your site to the Builderall platform, unlocking an entire suite of marketing and engagement tools—all without leaving WordPress.
+✅ **Drag-and-drop Builder** – Build and publish stunning pages with Builderall’s visual editor.
+✅ **Social Proof Popups** – Increase trust and conversions with real-time visitor activity alerts.
+✅ **Exit-Intent Popups** – Capture leads before they leave your site.
+✅ **Live Chat Support** – Add real-time communication to improve user engagement.
+✅ **More Supercharge Tools** – Access even more tools from your Builderall Supercharge Bundle, all in one plugin.
+Whether you’re a creator, entrepreneur, or small business owner, this plugin gives you the power of Builderall directly inside your WordPress workflow.
+**Try it now and elevate your website experience—without switching platforms.**
 
-= Realtime Editing =
-See the changes in real time as you edit your pages! No need to reload or publish anything.
 
-= Complete Customization =
-You have at your disposal several features to make your website even more professional, such as box and text shadows, animations, gradients, slideshow backgrounds and much more!
-
-= Build landing pages =
-With Builderall Builder for Wordpress, you can choose whether you want to control edit only content area or the entire page. Use *Builderall Builder Canvas* mode to build landing pages with no limitations on the margins, sizes, sidebar areas, headers and footers imposed by the theme.
-
-= Footers, Headers and popups = 
-Easily build a footer and header for your entire site or choose for each page whether you want to use a header/footer created in Builderall Builder, the theme header, or if you don't want to display headers and footers.
-
-= Templates library =
-A gallery of over 500 professional line templates and page layouts ready to use with 1 click. Sections for webinar, contact form, price list, testimonials, team, services and various pages ready to make your website development process even faster!
-
-= Responsiveness is a priority =
-There are several settings where you can set individual values ​​for desktop, tablet and mobile including text size, margins, spacing and border sizes for example.
-
-== Features ==
-
-* Drag'n drop technology
-* Custom CSS and JS - global or page-specific
-* Inline text editing
-* Undo and Redo feature
-* Landing pages creation
-* Use Wordpress widgets or third-party widgets within the builder
-* Wordpress shortcodes
-* Customize page margins and background
-* Save and reuse your elements
-* Animations
-* And much more!
-
-== Elements ==
-
-* **Button** - Extremely customizable, allows you to add a title, caption, icon. Have fun creating buttons with gradient backgrounds and with various possibilities in the hover event;
-* **Title** - Give a title to sections of your website and choose the HTML Tag;
-* **HTML** - Insert HTML codes on the page;
-* **Separator** - Horizontal line separating elements on the page. You can also add an icon or text;
-* **List** - List of items with text, icon and link. You can also set a separator line for each item;
-* **Text** - WYSIWYG text editor;
-* **Audio** - Add audio from media library or a URL;
-* **Gallery** - Image gallery with grid or mosaic display option;
-* **Icon** - Select from more than 2000 icons available;
-* **Image** - Add images from your media library, from a URL, or use images you already have in your Builderall Builder media repository with one click!
-* **Slideshow** - Rotating image carousel;
-* **Social Icons** - Icons for your social networks;
-* **Timer** - Countdown timer that works based on a deadline or a pre-set amount of time. Create an even greater sense of urgency by enabling the Cookies option;
-* **Video** - Include a video from the media library or embedded YouTube/Vimeo;
-* **Accordion** - Expandable content list. Can be used for FAQs and content organization;
-* **Card** - Content container for image, title, subtitle, content and button. It has several applications, such as resource list and call to actions;
-* **Menu** - Design the WordPress and mobile menus;
-* **Price table** - Practical planning presentation display;
-* **Tabs** - Create vertical or horizontal tabs;
-* **Testimonials** - Create a carousel or a grid of testimonies. You can customize everything!
-* **Posts** - This element displays a loop of posts or pages on cards
-* **Map** - Show your customers how they can find you. Accepts coordinates and place names. Can be displayed with map or satellite
-* **Counter** - An animated numerical counter for your website
-* **Progress Bar** - Various settings for you to create a personalized, animated progress bar
-* **Carousel** - Slider that displays images in loop
-* **Floating Buttons** - Create your own fixed menu and hovering menu that stays fixed while the visitor scrolls the page. Great for social networks and quick links
-
-== GO PRO ==
-
-Become PRO to enjoy all the features of [Builderall Builder for WordPress PRO](https://builderallbuilderpro.com) and make your development experience and results even better! 
-No need to purchase a license for each site! For a super affordable price, you can use it unlimitedly.	
-
-Get to know some PRO features:
-
-* **Smart popups** - that open automatically after scrolling to a specific point, after a certain period of time, or when there is an intention to leave the page
-* **Mega menu** - A menu with no limits to creation! Drag the elements you want into it
-* **Mailingboss** - The most robust email marketing integration
-* **Booking System** - A complete scheduling system with Google Calendar and Zoom integration
-* **Webinar** - Create a webinar and reach your audience in just a few minutes
-* **Flip Box** - Cards with rich content that reveal themselves when you mouse over them
-* **Animated texts** - Dynamic texts that draw much more attention from the visitor
-* **Advanced effects** - Motion effect and mouse effect
-* **Pricing list** - Restaurant menu
-* **Radial progress** - A circular progress bar
-* **Facebook Apps** - Button, comments, page, video, save and share button 
-* **Drag and drop inside** - Drag elements inside accordion, tab and menu items
-* **Gradient text** - useful way to create engaging designs and eye-catching features for your site
-* **Slideshow** - Select to show Thumbs or Buttons (Previous, Thumbs, Caption, Play/Pause, Fullscreen and Next), set overlay and more
-
-== Builderall Elements ==
-
-If you are a Builderall customer you still have integration with more tools from the most complete digital marketing company in the world at your disposal.
-
-* Checkout system
-* Video hosting
-* Builderall Builder Media directory
-
-If you're not a Builderall customer yet, explore our universe of possibilities and see what we can do for you! [Visit our website](https://builderall.com/) and learn more.
-
-== Help ==
-
-* We have great tutorials and training videos on basic and advanced levels! Take a look at our [help center](https://knowledgebase.builderall.com/) and [youtube channel](https://www.youtube.com/channel/UCRzQ11vg83JBagbO8piZH1A)
 
 == Installation ==
 1. Navigate to Plugins > Add New
@@ -125,6 +38,11 @@ If you're not a Builderall customer yet, explore our universe of possibilities a
 6. Activating Canvas Mode
 
 == Changelog ==
+= 3.0.0 =
+* New: In addition to a page builder, the plugin now allows you to enable a bundle of marketing tools
+* Improvement: Better organization of menus and administrative tabs
+* Fix: creating page without title
+
 = 2.0.5 =
 * Added support to WordPress 6.7.1
 

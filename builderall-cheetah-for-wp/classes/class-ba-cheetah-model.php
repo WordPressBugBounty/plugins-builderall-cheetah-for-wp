@@ -2893,7 +2893,7 @@ final class BACheetahModel {
 			// Log an error if a module with this slug already exists.
 			if ( isset( self::$modules[ $instance->slug ] ) ) {
 				/* translators: %s: module filename */
-				error_log( sprintf( _x( 'A module with the filename %s.php already exists! Please namespace your module filenames to ensure compatibility with Builderall Builder.', '%s stands for the module filename', 'ba-cheetah' ), $instance->slug ) );
+				error_log( sprintf( _x( 'A module with the filename %s.php already exists! Please namespace your module filenames to ensure compatibility with Builderall for WordPress.', '%s stands for the module filename', 'ba-cheetah' ), $instance->slug ) );
 				return;
 			}
 
@@ -2927,7 +2927,7 @@ final class BACheetahModel {
 	static public function register_module_alias( $alias, $config ) {
 		if ( isset( self::$module_aliases[ $alias ] ) ) {
 			/* translators: %s: module alias key */
-			_doing_it_wrong( __CLASS__ . '::register_module_alias', sprintf( _x( 'The module alias %s already exists! Please namespace your module aliases to ensure compatibility with Builderall Builder.', '%s stands for the module alias key', 'ba-cheetah' ), $alias ), '1.10' );
+			_doing_it_wrong( __CLASS__ . '::register_module_alias', sprintf( _x( 'The module alias %s already exists! Please namespace your module aliases to ensure compatibility with Builderall for WordPress.', '%s stands for the module alias key', 'ba-cheetah' ), $alias ), '1.10' );
 			return;
 		}
 		if ( ! $config['module'] || ! isset( self::$modules[ $config['module'] ] ) ) {
@@ -6472,7 +6472,7 @@ final class BACheetahModel {
 				$template_data = (object) json_decode(wp_remote_retrieve_body($templates_req));
 
 				if (isset($template_data->metas->authorized) && !$template_data->metas->authorized) {
-					throw new BACheetahRetrieveTemplateException(__('Authentication token is invalid. Please unlink the account and relink in the Builderall Builder for Wordpress settings', 'ba-cheetah'), 1);
+					throw new BACheetahRetrieveTemplateException(__('Authentication token is invalid. Please unlink the account and relink in the Builderall for WordPress settings', 'ba-cheetah'), 1);
 					return;
 				}
 
@@ -6968,7 +6968,7 @@ final class BACheetahModel {
 	 * @return string
 	 */
 	static public function get_branding() {
-		return 'Builderall Builder';
+		return 'Builderall for WordPress';
 	}
 
 	/**
@@ -7273,6 +7273,7 @@ final class BACheetahModel {
 			delete_option( '_ba_cheetah_access' );
 			delete_option( '_ba_cheetah_help_button' );
 			delete_option( '_ba_cheetah_color_presets' );
+			delete_option( '_ba_cheetah_supercharge_enabled' );
 
 			// Options da autenticação
 			delete_option('_ba_cheetah_pro_email');

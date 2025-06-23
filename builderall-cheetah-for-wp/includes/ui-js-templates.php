@@ -374,7 +374,7 @@
 	<span class="dashicons dashicons-no lightbox-close-icon ba-cheetah-alert-close ba-cheetah-feedback-close"></span>
 	<div class="ba-cheetah-lightbox-body">
 		<p><?php echo _e('Are you enjoying Builderall Builder? Tell us about your experience.', 'ba-cheetah') ?></p>
-		<a href="https://forms.gle/hzPbZksNtkUPaLzKA" target="_blank" class="ba-cheetah-feedback-stars ba-cheetah-feedback-close">
+		<a href="https://quiz.builderall.com/internet-marketing-llc/9fpu7mh0ck" target="_blank" class="ba-cheetah-feedback-stars ba-cheetah-feedback-close">
 			<span></span>
 			<span></span>
 			<span></span>
@@ -384,7 +384,7 @@
 	</div>
 	<div class="ba-cheetah-lightbox-footer">
 		<label for="ba-cheetah-feedback"><input type="checkbox" id="ba-cheetah-feedback" name="ba-cheetah-feedback">Don't show again</label>
-		<a href="https://forms.gle/hzPbZksNtkUPaLzKA" target="_blank" class="ba-cheetah-feedback-close ba-cheetah-alert-close ba-cheetah-alert-confirm ba-cheetah-button ba-cheetah-button--medium ba-cheetah-button-primary">
+		<a href="https://quiz.builderall.com/internet-marketing-llc/9fpu7mh0ck" target="_blank" class="ba-cheetah-feedback-close ba-cheetah-alert-close ba-cheetah-alert-confirm ba-cheetah-button ba-cheetah-button--medium ba-cheetah-button-primary">
 			<?php echo _e('Answer', 'ba-cheetah') ?>
 		</a>
 	</div>
@@ -424,7 +424,7 @@
 	<span class="dashicons dashicons-no" onclick="BACheetahLightbox.closeParent( this )"></span>
 	<div class="ba-cheetah-pro-message-title">{{data.feature}} <?php _e( 'has restricted access', 'ba-cheetah' );?></div>
 	<div class="ba-cheetah-pro-message-content">
-		<?php _e( 'With the Builderall Builder for WordPress you can make a website load faster and beatiful. Meet all features of Pro version and take the experience to create websites to the next level.', 'ba-cheetah' ); ?>
+		<?php _e('With the Builderall for WordPress you can make a website load faster and beatiful. Meet all features of Pro version and take the experience to create websites to the next level.', 'ba-cheetah'); ?>
 	</div>
 	<div class="ba-cheetah-pro-message-button">
 		<button class="ba-cheetah-upgrade-button ba-cheetah-button ba-cheetah-button-primary" onclick="BACheetah._proClicked()">
@@ -1391,3 +1391,151 @@
 	</div>
 </script>
 <!-- #tmpl-ba-cheetah-keyboard-shortcuts -->
+
+
+
+<!-- #tmpl-ba-cheetah-supercharge-bundle-panel -->
+<script type="text/html" id="tmpl-ba-cheetah-supercharge-bundle-panel">
+	<div class="ba-cheetah--supercharge-bundle-panel">
+		<div class="supercharge-title">
+			<h2><?php _e( 'SuperCharge Bundle Settings', 'ba-cheetah' ); ?></h2>
+		</div>
+		<div class="supercharge-card-content">
+			<div class="tool-card">
+				<div class="tool-top">
+					<span><?php _e( 'Exit Intent Popup', 'ba-cheetah' ); ?></span>
+					<button class="accordion-toggle">
+						<svg width="12.588" height="7.494">
+							<use xlink:href="#ba-cheetah-icon--arrow"></use>
+						</svg>
+					</button>
+				</div>
+				<div class="card-container">
+					<div class="tool-card-content">
+						<div class="tool-card-description">
+							<span><?php _e( 'Offer exclusive deals and content to keep them wanting more.', 'ba-cheetah' ); ?></span>
+						</div>
+						<div class="icon">
+							<img src="<?php echo BA_CHEETAH_URL . 'img/supercharge/exit-popup.svg'; ?>">
+						</div>
+					</div>
+					<div class="tool-card-footer">
+						<button class="page-popups-trigger">
+							<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+								<path d="M12.2989 7.79853C12.0493 7.61548 11.9002 7.32147 11.9002 7.01171C11.9002 6.70195 12.0493 6.40794 12.2985 6.22524L13.4514 5.37996C13.6352 5.24486 13.7111 5.0072 13.6394 4.79055C13.3426 3.89872 12.8732 3.0853 12.2439 2.37233C12.0923 2.20153 11.848 2.14763 11.6391 2.23933L10.3409 2.81019C10.0581 2.9348 9.72873 2.91695 9.46028 2.76189C9.19217 2.60719 9.01226 2.33138 8.97831 2.02372L8.82221 0.598484C8.79736 0.371678 8.62865 0.186872 8.40535 0.141021C7.49637 -0.0448339 6.5412 -0.0479838 5.61612 0.137521C5.39142 0.182672 5.22236 0.367478 5.19751 0.595334L5.04281 2.01147C5.00886 2.31948 4.82895 2.59529 4.56014 2.74999C4.29204 2.9047 3.96373 2.92325 3.67987 2.79829L2.37468 2.22428C2.16748 2.13258 1.92247 2.18578 1.77092 2.35623C1.1395 3.0664 0.668037 3.87877 0.368078 4.7699C0.295276 4.9862 0.370878 5.22526 0.555333 5.36071L1.70091 6.20074C1.95082 6.38414 2.09993 6.67815 2.09993 6.98791C2.09993 7.29767 1.95082 7.59168 1.70161 7.77438L0.548683 8.61965C0.364928 8.75476 0.288976 8.99241 0.360728 9.20907C0.657536 10.1009 1.1269 10.9143 1.75622 11.6273C1.90777 11.7984 2.15278 11.8527 2.36103 11.7603L3.65922 11.1894C3.94203 11.0648 4.27103 11.0827 4.53984 11.2377C4.80795 11.3924 4.98785 11.6682 5.02181 11.9759L5.17791 13.4011C5.20276 13.6279 5.37147 13.8127 5.59477 13.8586C6.05468 13.9524 6.5272 14 7.00006 14C7.46137 14 7.92688 13.9534 8.38365 13.8617C8.60835 13.8166 8.77741 13.6318 8.80226 13.4039L8.95731 11.9878C8.99126 11.6798 9.17117 11.404 9.43998 11.2493C9.70808 11.0949 10.0367 11.0767 10.3203 11.201L11.6254 11.775C11.8333 11.867 12.0776 11.8138 12.2292 11.643C12.8606 10.9329 13.3321 10.1205 13.632 9.22937C13.7048 9.01306 13.6292 8.77401 13.4448 8.63855L12.2989 7.79853ZM7.00006 9.44988C5.64692 9.44988 4.54999 8.35295 4.54999 6.99981C4.54999 5.64667 5.64692 4.54974 7.00006 4.54974C8.3532 4.54974 9.45013 5.64667 9.45013 6.99981C9.45013 8.35295 8.3532 9.44988 7.00006 9.44988Z" fill="white" />
+							</svg>
+							<span>
+								<?php
+								echo _e('Configure')
+								?>
+							</span>
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="supercharge-card-content">
+			<div class="tool-card">
+				<div class="tool-top">
+					<span><?php _e( 'Social Proof', 'ba-cheetah' ); ?></span>
+					<button class="accordion-toggle">
+						<svg width="12.588" height="7.494">
+							<use xlink:href="#ba-cheetah-icon--arrow"></use>
+						</svg>
+					</button>
+				</div>
+				<div class="card-container">
+					<div class="tool-card-content">
+						<div class="tool-card-description">
+							<span><?php _e( 'Show real-time customer activity to build trust instantly.', 'ba-cheetah' ); ?></span>
+						</div>
+						<div class="icon">
+							<img src="<?php echo BA_CHEETAH_URL . 'img/supercharge/proof.svg'; ?>">
+						</div>
+					</div>
+					<div class="tool-card-footer">
+						<a href="https://office.builderall.com/br/office/new-social-proof" target="_blank" rel="noopener noreferrer">
+							<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+								<path d="M12.2989 7.79853C12.0493 7.61548 11.9002 7.32147 11.9002 7.01171C11.9002 6.70195 12.0493 6.40794 12.2985 6.22524L13.4514 5.37996C13.6352 5.24486 13.7111 5.0072 13.6394 4.79055C13.3426 3.89872 12.8732 3.0853 12.2439 2.37233C12.0923 2.20153 11.848 2.14763 11.6391 2.23933L10.3409 2.81019C10.0581 2.9348 9.72873 2.91695 9.46028 2.76189C9.19217 2.60719 9.01226 2.33138 8.97831 2.02372L8.82221 0.598484C8.79736 0.371678 8.62865 0.186872 8.40535 0.141021C7.49637 -0.0448339 6.5412 -0.0479838 5.61612 0.137521C5.39142 0.182672 5.22236 0.367478 5.19751 0.595334L5.04281 2.01147C5.00886 2.31948 4.82895 2.59529 4.56014 2.74999C4.29204 2.9047 3.96373 2.92325 3.67987 2.79829L2.37468 2.22428C2.16748 2.13258 1.92247 2.18578 1.77092 2.35623C1.1395 3.0664 0.668037 3.87877 0.368078 4.7699C0.295276 4.9862 0.370878 5.22526 0.555333 5.36071L1.70091 6.20074C1.95082 6.38414 2.09993 6.67815 2.09993 6.98791C2.09993 7.29767 1.95082 7.59168 1.70161 7.77438L0.548683 8.61965C0.364928 8.75476 0.288976 8.99241 0.360728 9.20907C0.657536 10.1009 1.1269 10.9143 1.75622 11.6273C1.90777 11.7984 2.15278 11.8527 2.36103 11.7603L3.65922 11.1894C3.94203 11.0648 4.27103 11.0827 4.53984 11.2377C4.80795 11.3924 4.98785 11.6682 5.02181 11.9759L5.17791 13.4011C5.20276 13.6279 5.37147 13.8127 5.59477 13.8586C6.05468 13.9524 6.5272 14 7.00006 14C7.46137 14 7.92688 13.9534 8.38365 13.8617C8.60835 13.8166 8.77741 13.6318 8.80226 13.4039L8.95731 11.9878C8.99126 11.6798 9.17117 11.404 9.43998 11.2493C9.70808 11.0949 10.0367 11.0767 10.3203 11.201L11.6254 11.775C11.8333 11.867 12.0776 11.8138 12.2292 11.643C12.8606 10.9329 13.3321 10.1205 13.632 9.22937C13.7048 9.01306 13.6292 8.77401 13.4448 8.63855L12.2989 7.79853ZM7.00006 9.44988C5.64692 9.44988 4.54999 8.35295 4.54999 6.99981C4.54999 5.64667 5.64692 4.54974 7.00006 4.54974C8.3532 4.54974 9.45013 5.64667 9.45013 6.99981C9.45013 8.35295 8.3532 9.44988 7.00006 9.44988Z" fill="white" />
+							</svg>
+							<span>
+								<?php
+								echo _e('Configure')
+								?>
+							</span>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="supercharge-card-content">
+			<div class="tool-card">
+				<div class="tool-top">
+					<span><?php _e( 'Browser Notifications', 'ba-cheetah' ); ?></span>
+					<button class="accordion-toggle">
+						<svg width="12.588" height="7.494">
+							<use xlink:href="#ba-cheetah-icon--arrow"></use>
+						</svg>
+					</button>
+				</div>
+				<div class="card-container">
+					<div class="tool-card-content">
+						<div class="tool-card-description">
+							<span><?php _e( 'Push Browser Notifications and keep users coming back.', 'ba-cheetah' ); ?></span>
+						</div>
+						<div class="icon">
+							<img src="<?php echo BA_CHEETAH_URL . 'img/supercharge/notify.svg'; ?>">
+						</div>
+					</div>
+					<div class="tool-card-footer">
+						<a href="https://office.builderall.com/br/office/browser-notifications" target="_blank" rel="noopener noreferrer">
+							<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+								<path d="M12.2989 7.79853C12.0493 7.61548 11.9002 7.32147 11.9002 7.01171C11.9002 6.70195 12.0493 6.40794 12.2985 6.22524L13.4514 5.37996C13.6352 5.24486 13.7111 5.0072 13.6394 4.79055C13.3426 3.89872 12.8732 3.0853 12.2439 2.37233C12.0923 2.20153 11.848 2.14763 11.6391 2.23933L10.3409 2.81019C10.0581 2.9348 9.72873 2.91695 9.46028 2.76189C9.19217 2.60719 9.01226 2.33138 8.97831 2.02372L8.82221 0.598484C8.79736 0.371678 8.62865 0.186872 8.40535 0.141021C7.49637 -0.0448339 6.5412 -0.0479838 5.61612 0.137521C5.39142 0.182672 5.22236 0.367478 5.19751 0.595334L5.04281 2.01147C5.00886 2.31948 4.82895 2.59529 4.56014 2.74999C4.29204 2.9047 3.96373 2.92325 3.67987 2.79829L2.37468 2.22428C2.16748 2.13258 1.92247 2.18578 1.77092 2.35623C1.1395 3.0664 0.668037 3.87877 0.368078 4.7699C0.295276 4.9862 0.370878 5.22526 0.555333 5.36071L1.70091 6.20074C1.95082 6.38414 2.09993 6.67815 2.09993 6.98791C2.09993 7.29767 1.95082 7.59168 1.70161 7.77438L0.548683 8.61965C0.364928 8.75476 0.288976 8.99241 0.360728 9.20907C0.657536 10.1009 1.1269 10.9143 1.75622 11.6273C1.90777 11.7984 2.15278 11.8527 2.36103 11.7603L3.65922 11.1894C3.94203 11.0648 4.27103 11.0827 4.53984 11.2377C4.80795 11.3924 4.98785 11.6682 5.02181 11.9759L5.17791 13.4011C5.20276 13.6279 5.37147 13.8127 5.59477 13.8586C6.05468 13.9524 6.5272 14 7.00006 14C7.46137 14 7.92688 13.9534 8.38365 13.8617C8.60835 13.8166 8.77741 13.6318 8.80226 13.4039L8.95731 11.9878C8.99126 11.6798 9.17117 11.404 9.43998 11.2493C9.70808 11.0949 10.0367 11.0767 10.3203 11.201L11.6254 11.775C11.8333 11.867 12.0776 11.8138 12.2292 11.643C12.8606 10.9329 13.3321 10.1205 13.632 9.22937C13.7048 9.01306 13.6292 8.77401 13.4448 8.63855L12.2989 7.79853ZM7.00006 9.44988C5.64692 9.44988 4.54999 8.35295 4.54999 6.99981C4.54999 5.64667 5.64692 4.54974 7.00006 4.54974C8.3532 4.54974 9.45013 5.64667 9.45013 6.99981C9.45013 8.35295 8.3532 9.44988 7.00006 9.44988Z" fill="white" />
+							</svg>
+							<span>
+								<?php
+								echo _e('Configure')
+								?>
+							</span>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="supercharge-card-content">
+			<div class="tool-card">
+				<div class="tool-top">
+					<span><?php _e( 'Live Chat', 'ba-cheetah' ); ?></span>
+					<button class="accordion-toggle">
+						<svg width="12.588" height="7.494">
+							<use xlink:href="#ba-cheetah-icon--arrow"></use>
+						</svg>
+					</button>
+				</div>
+				<div class="card-container">
+					<div class="tool-card-content">
+						<div class="tool-card-description">
+							<span><?php _e( 'Chat in real-time with website visitors. Offer live support.', 'ba-cheetah' ); ?></span>
+						</div>
+						<div class="icon">
+							<img src="<?php echo BA_CHEETAH_URL . 'img/supercharge/live-chat.svg'; ?>">
+						</div>
+					</div>
+					<div class="tool-card-footer">
+						<a href="https://office.builderall.com/br/office/livechat" target="_blank" rel="noopener noreferrer">
+							<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+								<path d="M12.2989 7.79853C12.0493 7.61548 11.9002 7.32147 11.9002 7.01171C11.9002 6.70195 12.0493 6.40794 12.2985 6.22524L13.4514 5.37996C13.6352 5.24486 13.7111 5.0072 13.6394 4.79055C13.3426 3.89872 12.8732 3.0853 12.2439 2.37233C12.0923 2.20153 11.848 2.14763 11.6391 2.23933L10.3409 2.81019C10.0581 2.9348 9.72873 2.91695 9.46028 2.76189C9.19217 2.60719 9.01226 2.33138 8.97831 2.02372L8.82221 0.598484C8.79736 0.371678 8.62865 0.186872 8.40535 0.141021C7.49637 -0.0448339 6.5412 -0.0479838 5.61612 0.137521C5.39142 0.182672 5.22236 0.367478 5.19751 0.595334L5.04281 2.01147C5.00886 2.31948 4.82895 2.59529 4.56014 2.74999C4.29204 2.9047 3.96373 2.92325 3.67987 2.79829L2.37468 2.22428C2.16748 2.13258 1.92247 2.18578 1.77092 2.35623C1.1395 3.0664 0.668037 3.87877 0.368078 4.7699C0.295276 4.9862 0.370878 5.22526 0.555333 5.36071L1.70091 6.20074C1.95082 6.38414 2.09993 6.67815 2.09993 6.98791C2.09993 7.29767 1.95082 7.59168 1.70161 7.77438L0.548683 8.61965C0.364928 8.75476 0.288976 8.99241 0.360728 9.20907C0.657536 10.1009 1.1269 10.9143 1.75622 11.6273C1.90777 11.7984 2.15278 11.8527 2.36103 11.7603L3.65922 11.1894C3.94203 11.0648 4.27103 11.0827 4.53984 11.2377C4.80795 11.3924 4.98785 11.6682 5.02181 11.9759L5.17791 13.4011C5.20276 13.6279 5.37147 13.8127 5.59477 13.8586C6.05468 13.9524 6.5272 14 7.00006 14C7.46137 14 7.92688 13.9534 8.38365 13.8617C8.60835 13.8166 8.77741 13.6318 8.80226 13.4039L8.95731 11.9878C8.99126 11.6798 9.17117 11.404 9.43998 11.2493C9.70808 11.0949 10.0367 11.0767 10.3203 11.201L11.6254 11.775C11.8333 11.867 12.0776 11.8138 12.2292 11.643C12.8606 10.9329 13.3321 10.1205 13.632 9.22937C13.7048 9.01306 13.6292 8.77401 13.4448 8.63855L12.2989 7.79853ZM7.00006 9.44988C5.64692 9.44988 4.54999 8.35295 4.54999 6.99981C4.54999 5.64667 5.64692 4.54974 7.00006 4.54974C8.3532 4.54974 9.45013 5.64667 9.45013 6.99981C9.45013 8.35295 8.3532 9.44988 7.00006 9.44988Z" fill="white" />
+							</svg>
+							<span>
+								<?php
+								echo _e('Configure')
+								?>
+							</span>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</script>
+<!-- #tmpl-ba-cheetah-supercharge-bundle-panel -->

@@ -198,6 +198,7 @@
 	flex-direction: column;
 	flex: 1 100%;
 	max-width: 100%;
+	overflow: auto;
 }
 
 /* Footer */

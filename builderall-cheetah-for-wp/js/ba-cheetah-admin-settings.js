@@ -133,6 +133,7 @@
 		 */
 		_initNav: function()
 		{
+			if (new URLSearchParams(window.location.search).get('page') == 'ba-cheetah-settings') {
 			var links  = $('.ba-cheetah-settings-nav a'),
 				hash   = window.location.hash,
 				active = hash === '' ? [] : links.filter('[href~="'+ hash +'"]');
@@ -146,6 +147,7 @@
 
 			active.addClass('ba-cheetah-active');
 			$('#ba-cheetah-'+ active.attr('href').split('#').pop() +'-form').fadeIn();
+		}
 		},
 
 		/**

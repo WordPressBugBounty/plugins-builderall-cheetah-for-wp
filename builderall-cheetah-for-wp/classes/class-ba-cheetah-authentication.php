@@ -136,6 +136,7 @@ final class BACheetahAuthentication
 			} else {
 				BACheetahAdminSettings::add_error(__($template_data->message));
 			}
+			wp_redirect('admin.php?page=welcome-page');
 
 		} catch (\Throwable $th) {
 			BACheetahAdminSettings::add_error(__( 'We had a problem! Try again later.' ));
@@ -270,7 +271,7 @@ final class BACheetahAuthentication
 
 				self::check_user_level();
 
-				wp_redirect(admin_url('admin.php?page=ba-cheetah-settings#welcome'));
+				wp_redirect(admin_url('admin.php?page=welcome-page'));
 				exit;
 			} else {
 				return new WP_Error('error_update_auth_token', 'Error to update Authentication Token', array('status' => 403));
@@ -406,7 +407,7 @@ final class BACheetahAuthentication
 		
 		update_option('_ba_cheetah_access', base64_encode('lite'));
 
-		wp_redirect(admin_url('admin.php?page=ba-cheetah-settings#pro'));
+		wp_redirect(admin_url('admin.php?page=welcome-page'));
 		exit();
 	}
 
@@ -416,7 +417,9 @@ final class BACheetahAuthentication
 		delete_option('_ba_cheetah_request_state');
 		delete_option('_ba_cheetah_access_token');
 		delete_option('_ba_cheetah_supercheckout_token');
-
+		$enabled = update_option('ba-cheetah-supercharge-enabled', 0);
+		BACheetahModel::update_admin_settings_option('_ba_cheetah_supercharge_enabled', $enabled, false);
+	
 		if($sameEmail) {
 			delete_option('_ba_cheetah_pro_email');
 		} else {
@@ -427,7 +430,7 @@ final class BACheetahAuthentication
 		}
 
 		self::check_user_level();
-		wp_redirect(admin_url('admin.php?page=ba-cheetah-settings#integrations'));
+		wp_redirect(admin_url('admin.php?page=welcome-page'));
 		exit();
 	}
 
@@ -451,7 +454,7 @@ final class BACheetahAuthentication
 
 		$message = sprintf(
 			/* translators: %s: branded builder name */
-			__('Link your Builderall Builder for WordPress with your Builderall account to unlock integrations with Booking, Supercheckout, Mailingboss and more!', 'ba-cheetah'),
+			__('Link your Builderall for WordPress with your Builderall account to unlock integrations with Booking, Supercheckout, Mailingboss and more!', 'ba-cheetah'),
 			BACheetahModel::get_branding()
 		);
 

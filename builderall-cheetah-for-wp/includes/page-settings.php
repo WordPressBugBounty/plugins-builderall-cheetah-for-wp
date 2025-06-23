@@ -13,6 +13,7 @@ $models = array_merge($default_model, $models);
 $sections = array(
 	'page_layout' => array(
 		'title'  => __('Page layout', 'ba-cheetah'),
+		'collapsed' => true,
 		'fields' => array(
 			'layout'     => array(
 				'type'    => 'select',
@@ -26,12 +27,14 @@ $sections = array(
 	)
 );
 
+
 $header_translated = __('Header', 'ba-cheetah');
 $footer_translated = __('Footer', 'ba-cheetah');
 
 $sections = array_merge($sections, array(
 	'cheetah_header' => array(
 		'title'  => __('Builderall Builder header', 'ba-cheetah'),
+		'collapsed' => true,
 		'fields' => array(
 			'ba-cheetah-header-option' => array(
 				'type'    => 'select',
@@ -71,6 +74,7 @@ $sections = array_merge($sections, array(
 	),
 	'cheetah_footer' => array(
 		'title'  => __('Builderall Builder footer', 'ba-cheetah'),
+		'collapsed' => true,
 		'fields' => array(
 			'ba-cheetah-footer-option' => array(
 				'type'    => 'select',

@@ -122,6 +122,7 @@ if ( ! class_exists( 'BACheetahLoader' ) ) {
 			require_once BA_CHEETAH_DIR . 'classes/class-ba-cheetah-auth-http.php';
 			require_once BA_CHEETAH_DIR . 'classes/class-ba-cheetah-popups.php';
 			require_once BA_CHEETAH_DIR . 'classes/class-ba-cheetah-tracking.php';
+			require_once BA_CHEETAH_DIR . 'classes/class-ba-cheetah-supercharge.php';
             require_once BA_CHEETAH_DIR . 'classes/class-ba-cheetah-media.php';
 			require_once BA_CHEETAH_DIR . 'classes/class-ba-cheetah-retrieve-template-exception.php';
 
@@ -171,7 +172,7 @@ if ( ! class_exists( 'BACheetahLoader' ) ) {
 		 * @return void
 		 */
 		static public function permissions_admin_notice() {
-			$message = __( 'Builderall Builder may not be functioning correctly as it does not have permission to write files to the WordPress uploads directory on your server. Please update the WordPress uploads directory permissions before continuing or contact your host for assistance.', 'ba-cheetah' );
+			$message = __( 'Builderall for WordPress may not be functioning correctly as it does not have permission to write files to the WordPress uploads directory on your server. Please update the WordPress uploads directory permissions before continuing or contact your host for assistance.', 'ba-cheetah' );
 
 			self::render_admin_notice( $message, 'error' );
 		}

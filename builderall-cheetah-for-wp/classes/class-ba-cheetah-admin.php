@@ -33,7 +33,10 @@ final class BACheetahAdmin
 
 	public static function register_style()
 	{
+		$font_url = plugins_url( '/fonts/', BA_CHEETAH_FILE );
+
 		wp_enqueue_style('ba-cheetah-admin-style', BA_CHEETAH_URL . 'css/ba-cheetah-admin.css', array(), BA_CHEETAH_VERSION);
+		wp_enqueue_style( 'font-syne', $font_url . 'syne/syne.css', array());
 	}
 
 	/**
@@ -50,7 +53,7 @@ final class BACheetahAdmin
 
 		// Check for WordPress 3.5 and above.
 		if (!version_compare($wp_version, '4.6', '>=')) {
-			self::show_activate_error(__('The <strong>Builderall Builder</strong> plugin requires WordPress version 4.6 or greater. Please update WordPress before activating the plugin.', 'ba-cheetah'));
+			self::show_activate_error(__('The <strong>Builderall for WordPress</strong> plugin requires WordPress version 4.6 or greater. Please update WordPress before activating the plugin.', 'ba-cheetah'));
 		}
 
 		/**
@@ -70,7 +73,7 @@ final class BACheetahAdmin
 					'utm_campaign' => 'no-multisite-support',
 				));
 				/* translators: %s: upgrade url */
-				self::show_activate_error(sprintf(__('This version of the <strong>Builderall Builder</strong> plugin is not compatible with WordPress Multisite. <a%s>Please upgrade</a> to the Multisite version of this plugin.', 'ba-cheetah'), ' href="' . $url . '" target="_blank"'));
+				self::show_activate_error(sprintf(__('This version of the <strong>Builderall for WordPress</strong> plugin is not compatible with WordPress Multisite. <a%s>Please upgrade</a> to the Multisite version of this plugin.', 'ba-cheetah'), ' href="' . $url . '" target="_blank"'));
 			}
 
 			// Success! Run the install.

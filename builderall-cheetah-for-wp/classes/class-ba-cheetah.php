@@ -780,7 +780,7 @@ final class BACheetah {
 	static public function clear_enqueued_global_assets() {
 		self::$enqueued_global_assets = array();
 	}
-
+	
 	/**
 	 * Register common JS vendors
 	 * This is primarily for consistent sharing with Assistant.
@@ -888,6 +888,7 @@ final class BACheetah {
 			wp_enqueue_style( 'dashicons' );
 			wp_enqueue_style( 'font-awesome-5' );
 			wp_enqueue_style( 'font-muli' );
+			wp_enqueue_style( 'font-syne' );
 			wp_enqueue_style( 'foundation-icons' );
 			wp_enqueue_style( 'jquery-nanoscroller', $css_url . 'jquery.nanoscroller.css', array(), $ver );
 			wp_enqueue_style( 'jquery-autosuggest', $css_url . 'jquery.autoSuggest.min.css', array(), $ver );
@@ -1292,7 +1293,16 @@ final class BACheetah {
 			'eventName' => 'showGlobalSettings',
 			'accessory' => $key_shortcuts['showGlobalSettings']['keyLabel'],
 		);
-
+		$supercharge_enabled = get_option('_ba_cheetah_supercharge_enabled', false);
+		if (BA_CHEETAH_AUTENTICATED && $supercharge_enabled == true) {
+			$tools_view['items'][06] = array(
+				'label'     => __( 'SuperCharge Bundle', 'ba-cheetah' ),
+				'icon' 		=> 'ba-cheetah-icon--supercharge',
+				'type'      => 'event',
+				'eventName' => 'showSuperchargeBundle',
+				'accessory' => $key_shortcuts['showSuperchargeBundle']['keyLabel'],
+			);
+		}
 		$tools_view['items'][07] = array(
 			'type' => 'separator',
 		);
@@ -1539,6 +1549,10 @@ final class BACheetah {
 			'showGlobalSettings' => array(
 				'label'   => _x( 'Open Global Settings', 'Keyboard action to open the global settings panel', 'ba-cheetah' ),
 				'keyCode' => 'mod+u',
+			),
+			'showSuperchargeBundle' => array(
+				'label'   => _x( 'Open Supercharge Bundle', 'Keyboard action to open the supercharge bundle panel', 'ba-cheetah' ),
+				'keyCode' => 'mod+b',
 			),
 			'showLayoutSettings' => array(
 				'label'   => _x( 'Open Layout Settings', 'Keyboard action to open the layout settings panel', 'ba-cheetah' ),
@@ -2776,6 +2790,7 @@ final class BACheetah {
 
 	static public function register_frontend_scripts_before_end_head() {
 		BACheetahTracking::render_facebook_pixel_header_code();
+		BACheetahSupercharge::render_script_header_code();
 	}
 
 	/**

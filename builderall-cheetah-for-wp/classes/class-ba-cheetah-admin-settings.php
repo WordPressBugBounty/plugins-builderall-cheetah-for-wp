@@ -26,6 +26,7 @@ final class BACheetahAdminSettings {
 		add_action( 'init', __CLASS__ . '::init_hooks', 11 );
 		// add_action( 'wp_ajax_ba_cheetah_welcome_submit', array( 'BACheetahAdminSettings', 'welcome_submit' ) );
 	}
+	
 
 	/**
 	 * AJAX callback for welcome email subscription form.
@@ -49,10 +50,15 @@ final class BACheetahAdminSettings {
 
 		add_action( 'admin_menu', __CLASS__ . '::menu' );
 
-		if ( isset( $_REQUEST['page'] ) && 'ba-cheetah-settings' == $_REQUEST['page'] ) {
+		if ( isset( $_REQUEST['page'] ) ) {
 			add_action( 'admin_enqueue_scripts', __CLASS__ . '::styles_scripts' );
 			add_filter( 'admin_footer_text', array( __CLASS__, '_filter_admin_footer_text' ) );
-			self::save();
+			if ('supercharge-bundle' == $_REQUEST['page']) {
+				self::save_supercharge();
+			}
+			else {
+				self::save();
+			}
 		}
 	}
 
@@ -103,10 +109,105 @@ final class BACheetahAdminSettings {
 			$func  = __CLASS__ . '::render';
 
 			add_menu_page($title, $title, 'edit_pages', $slug, $func, BA_CHEETAH_URL . 'img/branding/menu-icon.svg?cache=1');
-			add_submenu_page('ba-cheetah-settings', $title, $title, $cap, $slug, $func, -1 );
+			add_submenu_page(
+				'ba-cheetah-settings',      // Slug do menu pai
+				'Welcome',                	// Título da aba/página
+				'Welcome',                	// Título do item no menu
+				$cap,	                 	// Permissão mínima
+				'welcome-page',     		// Slug único da nova página
+				[__CLASS__, 'render_ba_welcome'], // Função que renderiza
+				-1
+			);
+			add_submenu_page(
+				'ba-cheetah-settings',
+				'builderall-account',         
+				'Builderall Account',
+				$cap,
+				'builderall-account',
+				[__CLASS__, 'render_ba_account'],
+				1
+			);
+			add_submenu_page(
+				'ba-cheetah-settings',
+				'supercharge-bundle',
+				'SuperCharge Bundle',
+				$cap,
+				'supercharge-bundle',
+				[__CLASS__, 'render_ba_supercharge'],
+				2
+			);
+			add_submenu_page(
+				'ba-cheetah-settings',
+				'Page Builder',
+				'Page Builder',
+				$cap,
+				$slug,
+				$func,
+				3 
+			);
+
 		}
 	}
+	/**
+	 * Renders the builderall account.
+	 *
 
+	 * @return void
+	 */
+	static public function render_ba_account() {
+		?>
+		<div class="wrap">
+			<div class="ba-cheetah-settings-heading">
+				<?php
+				BACheetahAdminSettings::render_page_heading();
+				?>
+			</div>
+		</div>
+		<?php
+		self::render_form('account');
+	}
+	/**
+	 * Renders the builderall account.
+	 *
+
+	 * @return void
+	 */
+	static public function render_ba_welcome() {
+		
+		?>
+		<div class="wrap">
+			<div class="ba-cheetah-settings-heading">
+				<?php
+				BACheetahAdminSettings::render_page_heading();
+				?>
+			</div>
+		</div>
+		<?php
+		if ( ! BACheetahModel::is_white_labeled() && ( is_network_admin() || ! self::multisite_support() ) ) {
+			
+			self::render_form( 'welcome' );
+		}
+		?>
+		<?php
+	}
+
+	static public function render_ba_supercharge() {
+		
+		?>
+		<div class="wrap">
+			<div class="ba-cheetah-settings-heading">
+				<?php
+				BACheetahAdminSettings::render_page_heading();
+				?>
+			</div>
+		</div>
+		<?php
+			self::render_form( 'supercharge' );
+		?>
+		<?php
+	}
+	
+	
 	/**
 	 * Renders the admin settings.
 	 *
@@ -145,7 +246,7 @@ final class BACheetahAdminSettings {
 			echo '<img role="presentation" src="' . esc_attr($icon) . '" />';
 		}
 		/* translators: %s: builder branded name */
-		echo '<span>' . sprintf( _x( '%s Settings', '%s stands for custom branded "Page Builder" name.', 'ba-cheetah' ), 'Builderall Builder' ) . '</span>';
+		echo '<span>' . sprintf( _x( '%s Settings', '%s stands for custom branded "Page Builder" name.', 'ba-cheetah' ), 'Builderall for WordPress' ) . '</span>';
 	}
 
 	/**
@@ -177,20 +278,15 @@ final class BACheetahAdminSettings {
 		 * @see ba_cheetah_admin_settings_nav_items
 		 */
 		$item_data = apply_filters( 'ba_cheetah_admin_settings_nav_items', array(
-			'welcome'     => array(
-				'title'    => __( 'Welcome', 'ba-cheetah' ),
-				'show'     => ! BACheetahModel::is_white_labeled() && ( is_network_admin() || ! self::multisite_support() ),
+			'general'       => array(
+				'title'    => __( 'General', 'ba-cheetah' ),
+				'show'     => true,
 				'priority' => 50,
-			),
-			'integrations' => array(
-				'title'    => __( 'Integrations', 'ba-cheetah' ),
-				'show'     => ( is_network_admin() || ! self::multisite_support() ),
-				'priority' => 100,
 			),
 			'pro'       => array(
 				'title'    => __( 'Builderall Builder Pro', 'ba-cheetah' ),
 				'show'     => true,
-				'priority' => 200,
+				'priority' => 100,
 			),
 			/* @FUTURE - admin tabs disabled
 			'modules'     => array(
@@ -207,35 +303,62 @@ final class BACheetahAdminSettings {
 			'post-types'  => array(
 				'title'    => __( 'Post Types', 'ba-cheetah' ),
 				'show'     => true,
-				'priority' => 400,
+				'priority' => 200,
 			),
 			'tools'       => array(
-				'title'    => __( 'Tools', 'ba-cheetah' ),
+				'title'    => __( 'Tools and Settings', 'ba-cheetah' ),
+				'show'     => true,
+				'priority' => 300,
+			),
+			'integrations' => array(
+				'title'    => __( 'Integrations', 'ba-cheetah' ),
+				'show'     => ( is_network_admin() || ! self::multisite_support() ),
+				'priority' => 400,
+			),
+			'headers'       => array(
+				'title'    => __( 'Headers', 'ba-cheetah' ),
+				'show'     => true,
+				'priority' => 500,
+				'url'	   => admin_url('edit.php?post_type=ba-cheetah-header')
+			),
+			'footers'       => array(
+				'title'    => __( 'Footers', 'ba-cheetah' ),
+				'show'     => true,
+				'priority' => 600,
+				'url'	   => admin_url('edit.php?post_type=ba-cheetah-footer')
+			),
+			'popups'       => array(
+				'title'    => __( 'Popups', 'ba-cheetah' ),
 				'show'     => true,
 				'priority' => 700,
+				'url'	   => admin_url('edit.php?post_type=ba-cheetah-popup')
 			),
-			'general'       => array(
-				'title'    => __( 'General Settings', 'ba-cheetah' ),
+			'seved_itens'       => array(
+				'title'    => __( 'Saved Itens', 'ba-cheetah' ),
 				'show'     => true,
-				'priority' => 900,
+				'priority' => 800,
+				'url'	   => admin_url('edit.php?post_type=ba-cheetah-template&ba-cheetah-template-type=layout')
 			),
+			
 		) );
-
+	
 		$sorted_data = array();
-
+	
 		foreach ( $item_data as $key => $data ) {
-			$data['key']                      = $key;
+			$data['key'] = $key;
 			$sorted_data[ $data['priority'] ] = $data;
 		}
-
+	
 		ksort( $sorted_data );
-
+	
 		foreach ( $sorted_data as $data ) {
 			if ( $data['show'] ) {
-				echo '<li><a href="#' . esc_attr($data['key']) . '">' . wp_kses_post($data['title']) . '</a></li>';
+				$url = isset($data['url']) ? $data['url'] : '#' . $data['key'];
+				echo '<li><a href="' . esc_url($url) . '">' . wp_kses_post($data['title']) . '</a></li>';
 			}
 		}
 	}
+	
 
 	/**
 	 * Renders the admin settings forms.
@@ -248,11 +371,18 @@ final class BACheetahAdminSettings {
 		if ( ! BACheetahModel::is_white_labeled() && ( is_network_admin() || ! self::multisite_support() ) ) {
 			self::render_form( 'welcome' );
 		}
+		// builderall account
+		self::render_form('account');
 
 		// License
 		if ( is_network_admin() || ! self::multisite_support() ) {
 			self::render_form( 'integrations' );
 		}
+		// Headers
+		self::render_form('headers');
+		
+		// supercharge bundle
+		self::render_form( 'supercharge' );
 
 		// Pro User
 		self::render_form( 'pro' );
@@ -282,6 +412,10 @@ final class BACheetahAdminSettings {
 
 		// General Settings
 		self::render_form( 'general' );
+
+
+		
+
 
 		/**
 		 * Let extensions hook into form rendering.
@@ -382,8 +516,9 @@ final class BACheetahAdminSettings {
 		// self::save_enabled_modules();
 		self::save_enabled_post_types();
 		// self::save_enabled_icons();
-		self::save_general_settings();
+		self::save_canvas_settings();
 		self::save_integrations();
+		// self::save_supercharge();
 		// self::save_user_access();
 		self::active_pro_user_access();
 		self::remove_pro_user_access();
@@ -408,8 +543,8 @@ final class BACheetahAdminSettings {
 	 * @access private
 	 * @return void
 	 */
-	static private function save_general_settings() {
-		if ( isset( $_POST['ba-cheetah-general-settings-nonce'] ) && wp_verify_nonce( $_POST['ba-cheetah-general-settings-nonce'], 'ba-general-config' ) ) {
+	static private function save_canvas_settings() {
+		if ( isset( $_POST['ba-cheetah-canvas-settings-nonce'] ) && wp_verify_nonce( $_POST['ba-cheetah-canvas-settings-nonce'], 'ba-general-config' ) ) {
 			
 			$ba_configurations = array();
 
@@ -447,6 +582,38 @@ final class BACheetahAdminSettings {
 		}
 	}
 
+	/**
+	 * Saves Supercharge configuration.
+	 *
+	 * @access private
+	 * @return void
+	 */
+	static private function save_supercharge() {
+		if ( isset( $_POST['ba-cheetah-supercharge-nonce'] ) && wp_verify_nonce( $_POST['ba-cheetah-supercharge-nonce'], 'ba-supercharge' ) ) {
+			$enabled = isset($_POST['ba-cheetah-supercharge-enabled']) ? 1 : 0;
+			
+			
+			BACheetahModel::update_admin_settings_option('_ba_cheetah_supercharge_enabled', $enabled, true);
+	
+
+			$upload_dir = ABSPATH . 'bn/notifications/';
+			$sw_file_path = $upload_dir . 'sw.js';
+			
+			// Ensure sw.js exists in /bn/notifications; create dir and download if missing.
+			if ( ! file_exists( $upload_dir ) ) {
+				wp_mkdir_p( $upload_dir );
+			}
+	
+			if ( ! file_exists( $sw_file_path ) ) {
+				$remote_sw = wp_remote_get( 'https://notify.builderall.com/js/sw.js' );
+	
+				if ( ! is_wp_error( $remote_sw ) && isset( $remote_sw['body'] ) ) {
+					file_put_contents( $sw_file_path, $remote_sw['body'] );
+				}
+			}
+		}
+	}	
+	
 	/**
 	 * Saves the enabled modules.
 	 *
@@ -926,3 +1093,6 @@ final class BACheetahAdminSettings {
 }
 
 BACheetahAdminSettings::init();
+
+
+

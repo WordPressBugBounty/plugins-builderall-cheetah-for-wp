@@ -189,8 +189,16 @@ var LayoutBlockEditPre_5_3 = /*#__PURE__*/function (_Component) {
       var _this$props3 = this.props,
           savePost = _this$props3.savePost,
           setLaunching = _this$props3.setLaunching;
+
+      const currentTitle = wp.data.select('core/editor').getEditedPostAttribute('title');
+      if (!currentTitle) {
+        wp.data.dispatch('core/editor').editPost({ title: 'Builderall Home Page' });
+      }
+
       setLaunching(true);
-      savePost();
+      setTimeout(() => {
+        savePost();
+      }, 300);
     }
   }, {
     key: "convertToBuilder",
@@ -408,12 +416,20 @@ var LayoutBlockEdit = /*#__PURE__*/function (_Component) {
       var _this$props2 = this.props,
           savePost = _this$props2.savePost,
           setLaunching = _this$props2.setLaunching;
+          
+      const currentTitle = wp.data.select('core/editor').getEditedPostAttribute('title');
+      if (!currentTitle) {
+        wp.data.dispatch('core/editor').editPost({ title: 'Builderall Home Page' });
+      }
+
       setLaunching(true);
-      savePost().then(function () {
-        setTimeout(function () {
-          window.location.href = builder.access ? urls.edit : urls.view;
-        }, 2000);
-      });
+      setTimeout(() => {
+        savePost().then(() => {
+          setTimeout(() => {
+            window.location.href = builder.access ? urls.edit : urls.view;
+          }, 1000);
+        });
+      }, 300);
     }
   }, {
     key: "convertToBuilder",
@@ -703,8 +719,16 @@ var BuilderMoreMenuItemPre_5_3 = /*#__PURE__*/function (_Component) {
       var _this$props2 = this.props,
           savePost = _this$props2.savePost,
           setLaunching = _this$props2.setLaunching;
+
+      const currentTitle = wp.data.select('core/editor').getEditedPostAttribute('title');
+      if (!currentTitle) {
+        wp.data.dispatch('core/editor').editPost({ title: 'Builderall Home Page' });
+      }
+
       setLaunching(true);
-      savePost();
+      setTimeout(() => {
+        savePost();
+      }, 300);
     }
   }]);
 
@@ -850,12 +874,19 @@ var BuilderMoreMenuItem = /*#__PURE__*/function (_Component) {
       var _this$props2 = this.props,
           savePost = _this$props2.savePost,
           setLaunching = _this$props2.setLaunching;
+      const currentTitle = wp.data.select('core/editor').getEditedPostAttribute('title');
+      if (!currentTitle) {
+        wp.data.dispatch('core/editor').editPost({ title: 'Builderall Home Page' });
+      }
+
       setLaunching(true);
-      savePost().then(function () {
-        setTimeout(function () {
-          window.location.href = builder.access ? urls.edit : urls.view;
-        }, 2000);
-      });
+      setTimeout(() => {
+        savePost().then(() => {
+          setTimeout(() => {
+            window.location.href = builder.access ? urls.edit : urls.view;
+          }, 1000);
+        });
+      }, 300);
     }
   }]);
 
