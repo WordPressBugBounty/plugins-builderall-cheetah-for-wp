@@ -11,7 +11,7 @@ $changelog_url = 'https://wordpress.org/plugins/builderall-cheetah-for-wp/#devel
 
 		<span><?php _e('Builderall for WordPress is a responsive drag\'n drop page builder that allows you to build fantastic pages, add your own header, and footer, and take advantage of unique elements!', 'ba-cheetah'); ?></span>
 		<br>
-		<span><?php _e('Ready to start building?')?></span>
+		<span><?php _e('Ready to start building?', 'ba-cheetah')?></span>
 
 		<p><?php printf(__('<a href="%s">Add a new page</a> and click "Open Builderall for WordPress"!', 'ba-cheetah'),  admin_url().'post-new.php?post_type=page')?></p>
 
@@ -20,9 +20,9 @@ $changelog_url = 'https://wordpress.org/plugins/builderall-cheetah-for-wp/#devel
 
 		<p><?php _e('Boost your website’s performance and grow your business with the Builderall Supercharge Bundle!', 'ba-cheetah'); ?></p>
 
-		<p><?php _e('This powerful toolkit helps you increase engagement, build trust, and drive more conversions — all with one simple line of code added to your site.')?></p>
+		<p><?php _e('This powerful toolkit helps you increase engagement, build trust, and drive more conversions — all with one simple line of code added to your site.', 'ba-cheetah')?></p>
 
-		<p><?php _e('Get real-time social proof pop-ups, push notifications, live chat support, exit-intent pop-ups, and automated comment replies on Meta to keep visitors engaged and turn them into customers.')?></p>
+		<p><?php _e('Get real-time social proof pop-ups, push notifications, live chat support, exit-intent pop-ups, and automated comment replies on Meta to keep visitors engaged and turn them into customers.', 'ba-cheetah')?></p>
 
 		<p><?php printf(__('<a href="%s">Enable SuperCharge</a>', 'ba-cheetah'),  admin_url().'admin.php?page=ba-cheetah-settings#supercharge')?></p>
 

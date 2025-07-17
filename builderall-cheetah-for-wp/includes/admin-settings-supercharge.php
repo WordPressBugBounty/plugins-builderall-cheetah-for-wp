@@ -21,7 +21,7 @@
 		</div>
 		<div>
 			<div class="ba-jc-center ba-mg-t-1 ba-font-syne ba-font-21 ba-font-bold">
-				<?php _e('One Line of Code. 5 Tools. Any Platform.') ?>
+				<?php _e('One Line of Code. 5 Tools. Any Platform.', 'ba-cheetah') ?>
 			</div>
 			<div class="ba-text-ai-center ba-mg-t-1 ba-jc-center">
 				<span class="ba-tooltip">
@@ -29,9 +29,9 @@
 						<span class="supercharge-status">
 							<?php
 							if (get_option('_ba_cheetah_supercharge_enabled') == true) {
-								_e('Active');
+								_e('Active', 'ba-cheetah');
 							} else {
-								_e('Inactive');
+								_e('Inactive', 'ba-cheetah');
 							}
 							?>
 						</span>
@@ -64,18 +64,18 @@
 
 		</div>
 		<div class="ba-text-ai-center ba-text-width ba-mg-t-1">
-			<p><?php _e('Designed for the entrepreneuers looking for supercharge their website, the Builderall Supercharge Bundle offers a selection of essential tools that enhance user engagement and drive conversions on any platform.')  ?>
+			<p><?php _e('Designed for the entrepreneuers looking for supercharge their website, the Builderall Supercharge Bundle offers a selection of essential tools that enhance user engagement and drive conversions on any platform.', 'ba-cheetah')  ?>
 			</p>
 			<p>
 				<?php if (!$supercharge_enabled) {
-					_e('With just one line of code added to any website, on any platform, you get easy acess to this powerful set of tools that will Boost your conversions and supercharge your business!');
+					_e('With just one line of code added to any website, on any platform, you get easy acess to this powerful set of tools that will Boost your conversions and supercharge your business!', 'ba-cheetah');
 				}
 				?>
 			</p>
 		</div>
 		<?php if ($showLinkButton) : ?>
 			<div class="supercharge-buttons ba-jc-center ba-ai-center">
-				<a href="https://checkout.builderall.com/plans" target="_blank" rel="noopener noreferrer"><?php _e( 'NEW ACCOUNT', 'ba-cheetah' ); ?></a>
+				<a href="https://checkout.builderall.com/plans?utm_source=wordpress&utm_medium=WordpressPlugin&utm_campaign=newaccount" target="_blank" rel="noopener noreferrer"><?php _e( 'NEW ACCOUNT', 'ba-cheetah' ); ?></a>
 				<div class="ba-font-syne ba-font-21 ba-font-bold">
 					<?php _e('OR') ?>
 				</div>
@@ -141,7 +141,7 @@
 									</svg>
 									<span>
 										<?php
-										_e('Configure')
+										_e('Configure', 'ba-cheetah')
 										?>
 									</span>
 								</a>
@@ -170,7 +170,7 @@
 									</svg>
 									<span>
 										<?php
-											_e('Configure')
+											_e('Configure', 'ba-cheetah')
 										?>
 									</span>
 								</a>
@@ -199,7 +199,7 @@
 									</svg>
 									<span>
 										<?php
-											_e('Configure')
+											_e('Configure', 'ba-cheetah')
 										?>
 									</span>
 								</a>
@@ -210,7 +210,7 @@
 				<div>
 					<?php 
 					echo sprintf(
-						__('<a href="%s" target="_blank" style="margin-top: 20px" rel="noopener noreferrer">Learn more about the SuperCharge Bundle</a>', 'ba-cheetah'),
+						'<a href="%s" target="_blank" style="margin-top: 20px" rel="noopener noreferrer">'. __('Learn more about the SuperCharge Bundle', 'ba-cheetah') . '</a>',
 						esc_url('https://youtu.be/mHp-Q3phNCY?si=uUb67yqedgBUD8sV')
 					);
 					?>
@@ -218,10 +218,10 @@
 
 			</div>
 			<?php else : 
-			echo sprintf(
-				__('<a href="%s" style="margin-top: 20px" target="_blank" rel="noopener noreferrer">Learn More</a>', 'ba-cheetah'),
-				esc_url('https://youtu.be/mHp-Q3phNCY?si=uUb67yqedgBUD8sV')
-			);
+				echo sprintf(
+					'<a href="%s" style="margin-top: 20px" target="_blank" rel="noopener noreferrer">' . __('Learn More', 'ba-cheetah') . '</a>',
+					esc_url('https://youtu.be/mHp-Q3phNCY?si=uUb67yqedgBUD8sV')
+				);
 				?>
 			<?php endif ?>
 			

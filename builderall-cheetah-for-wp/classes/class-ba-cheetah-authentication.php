@@ -196,6 +196,7 @@ final class BACheetahAuthentication
 				} else {
 					update_option('_ba_cheetah_access', base64_encode('lite'));
 					delete_option('_ba_cheetah_access_token');
+					delete_option('_ba_cheetah_site_id');
 					delete_option('_ba_cheetah_pro_email');
 				}
 			}
@@ -310,6 +311,24 @@ final class BACheetahAuthentication
 		return $site_id;
 	}
 
+
+
+	static public function unlink()
+	{
+		$site_id = get_option('_ba_cheetah_site_id');
+		if (!$site_id) return;
+
+		$data = ['body' => ['site_id' => $site_id]];
+
+		BaCheetahAuthHttp::post(
+			BA_CHEETAH_DASHBOARD_URL . 'api/auth/account-unlink', $data
+		);
+
+		return $site_id;
+	}
+
+
+
 	/**
 	 * Redirects the user to the oauth screen passed as a token parameter
 	 * which is also saved in the database to check the bearer token from the panel
@@ -402,6 +421,7 @@ final class BACheetahAuthentication
 		
 		delete_option('_ba_cheetah_request_state');
 		delete_option('_ba_cheetah_access_token');
+		delete_option('_ba_cheetah_site_id');
 		delete_option('_ba_cheetah_supercheckout_token');
 		delete_option('_ba_cheetah_pro_email');
 		
@@ -413,9 +433,10 @@ final class BACheetahAuthentication
 
 	static public function logout() {
 		$sameEmail = self::isSameEmailToBaAndPro();
-		
+		self::unlink();
 		delete_option('_ba_cheetah_request_state');
 		delete_option('_ba_cheetah_access_token');
+		delete_option('_ba_cheetah_site_id');
 		delete_option('_ba_cheetah_supercheckout_token');
 		$enabled = update_option('ba-cheetah-supercharge-enabled', 0);
 		BACheetahModel::update_admin_settings_option('_ba_cheetah_supercharge_enabled', $enabled, false);
@@ -428,7 +449,6 @@ final class BACheetahAuthentication
 				update_option('_ba_cheetah_access_token', $userToken);
 			}
 		}
-
 		self::check_user_level();
 		wp_redirect(admin_url('admin.php?page=welcome-page'));
 		exit();

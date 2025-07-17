@@ -14,7 +14,7 @@
 			<?php
 				if (BACheetahAuthentication::is_pro_user()) :
 				?>
-					<p><?php echo __('Yeah!! You are Builderall Builder Pro. Enjoy your Access!'); ?></p>
+					<p><?php echo __('Yeah!! You are Builderall Builder Pro. Enjoy your Access!', 'ba-cheetah'); ?></p>
 					<?php
 						if(!BACheetahAuthentication::is_builderall_user()) : ?>
 							<form id="pro-form" action="<?php BACheetahAdminSettings::render_form_action( 'pro' ); ?>" method="post">

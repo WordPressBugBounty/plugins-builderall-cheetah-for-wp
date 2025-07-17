@@ -23,6 +23,7 @@ class BaCheetahAuthHttp
 		if(wp_remote_retrieve_response_code($response) === 401) {
 			if(!BA_CHEETAH_PRO) {
 				delete_option('_ba_cheetah_access_token');
+				delete_option('_ba_cheetah_site_id');
 			}
 		}
 		

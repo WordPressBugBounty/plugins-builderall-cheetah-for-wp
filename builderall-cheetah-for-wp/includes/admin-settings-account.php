@@ -16,15 +16,15 @@
 
 	<form id="account-form" class="ba-ai-center" action="<?php BACheetahAdminSettings::render_form_action( 'account' ); ?>" method="post">
 		<div class="supercharge-account-panel ba-font-syne ba-font-29 ba-font-extrabold">
-            <?php _e('Websites, Emails, Courses, Funnels, Chatbots.') ?>
-            <?php _e('Get Everything You Need in One Platform') ?>
+            <?php _e('Websites, Emails, Courses, Funnels, Chatbots.', 'ba-cheetah') ?>
+            <?php _e('Get Everything You Need in One Platform', 'ba-cheetah') ?>
 		</div>
 		<div>
 			<div class="ba-jc-center ba-mg-t-1 ba-text-ai-center">
                 <?php if ($user) : ?>
-                    <?php printf('Your account '.$user['email'].' is already connected!') ?>
+                    <?php printf(__('Your account %s is already connected!', 'ba-cheetah'), $user['email']) ?>
                 <?php else: ?>
-                     <span class="ba-w-70"> <?php _e('Link your Builderall for WordPress with your Builderall account to unlock integrations with Booking, Supercheckout, Mailingboss and more!')?> </span> 
+                     <span class="ba-w-70"> <?php _e('Link your Builderall for WordPress with your Builderall account to unlock integrations with Booking, Supercheckout, Mailingboss and more!', 'ba-cheetah')?> </span> 
                 <?php endif ?>
 			</div>			
 		</div>
@@ -42,7 +42,7 @@
 				<div class="ba-font-syne ba-font-21 ba-font-bold">
 				    <?php _e('OR') ?> 
 			    </div>
-				<a href="https://checkout.builderall.com/plans" target="_blank" rel="noopener noreferrer">NEW ACCOUNT</a>
+				<a href="https://checkout.builderall.com/plans?utm_source=wordpress&utm_medium=WordpressPlugin&utm_campaign=newaccount" target="_blank" rel="noopener noreferrer"><?php _e('NEW ACCOUNT', 'ba-cheetah') ?></a>
 			<?php endif; ?>
 		</div>
 		<p class="submit" style="display: none;">

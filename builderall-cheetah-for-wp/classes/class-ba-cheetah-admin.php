@@ -189,6 +189,9 @@ final class BACheetahAdmin
 	 */
 	static public function uninstall()
 	{
+		if (BA_CHEETAH_AUTENTICATED) {
+			BACheetahAuthentication::unlink();
+		}
 		BACheetahModel::uninstall_database();
 	}
 

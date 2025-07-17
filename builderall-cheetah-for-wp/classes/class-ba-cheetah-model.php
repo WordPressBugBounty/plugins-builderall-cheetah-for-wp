@@ -7279,6 +7279,7 @@ final class BACheetahModel {
 			delete_option('_ba_cheetah_pro_email');
 			delete_option('_ba_cheetah_request_state');
 			delete_option('_ba_cheetah_access_token');
+			delete_option('_ba_cheetah_site_id');
 			delete_option('_ba_cheetah_supercheckout_token');
 
 			// Recaptcha

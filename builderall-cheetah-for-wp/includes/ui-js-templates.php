@@ -1426,7 +1426,7 @@
 							</svg>
 							<span>
 								<?php
-								echo _e('Configure')
+									_e('Configure', 'ba-cheetah')
 								?>
 							</span>
 						</button>
@@ -1460,7 +1460,7 @@
 							</svg>
 							<span>
 								<?php
-								echo _e('Configure')
+									_e('Configure', 'ba-cheetah')
 								?>
 							</span>
 						</a>
@@ -1494,7 +1494,7 @@
 							</svg>
 							<span>
 								<?php
-								echo _e('Configure')
+									_e('Configure', 'ba-cheetah')
 								?>
 							</span>
 						</a>
@@ -1528,7 +1528,7 @@
 							</svg>
 							<span>
 								<?php
-								echo _e('Configure')
+									_e('Configure', 'ba-cheetah')
 								?>
 							</span>
 						</a>

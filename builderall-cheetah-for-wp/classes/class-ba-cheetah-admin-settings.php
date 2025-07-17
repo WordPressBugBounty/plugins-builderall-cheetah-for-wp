@@ -112,7 +112,7 @@ final class BACheetahAdminSettings {
 			add_submenu_page(
 				'ba-cheetah-settings',      // Slug do menu pai
 				'Welcome',                	// Título da aba/página
-				'Welcome',                	// Título do item no menu
+				__('Welcome', 'ba-cheetah'),               	// Título do item no menu
 				$cap,	                 	// Permissão mínima
 				'welcome-page',     		// Slug único da nova página
 				[__CLASS__, 'render_ba_welcome'], // Função que renderiza
@@ -121,7 +121,7 @@ final class BACheetahAdminSettings {
 			add_submenu_page(
 				'ba-cheetah-settings',
 				'builderall-account',         
-				'Builderall Account',
+				__('Builderall Account', 'ba-cheetah'),
 				$cap,
 				'builderall-account',
 				[__CLASS__, 'render_ba_account'],
@@ -130,7 +130,7 @@ final class BACheetahAdminSettings {
 			add_submenu_page(
 				'ba-cheetah-settings',
 				'supercharge-bundle',
-				'SuperCharge Bundle',
+				__('SuperCharge Bundle', 'ba-cheetah'),
 				$cap,
 				'supercharge-bundle',
 				[__CLASS__, 'render_ba_supercharge'],
@@ -139,7 +139,7 @@ final class BACheetahAdminSettings {
 			add_submenu_page(
 				'ba-cheetah-settings',
 				'Page Builder',
-				'Page Builder',
+				__('Page Builder', 'ba-cheetah'),
 				$cap,
 				$slug,
 				$func,

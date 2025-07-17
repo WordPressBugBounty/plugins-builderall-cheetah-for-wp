@@ -4,7 +4,7 @@ Tags: page builder, cheetah, cheetah builder for wordpress, builderall wp, drag 
 Requires at least: 4.6
 Tested up to: 6.7.1
 Requires PHP: 5.6
-Stable tag: 3.0.0
+Stable tag: 3.0.1
 License: GPL2+
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
