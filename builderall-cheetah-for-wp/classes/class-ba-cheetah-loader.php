@@ -65,7 +65,7 @@ if ( ! class_exists( 'BACheetahLoader' ) ) {
 			define( 'BA_CHEETAH_DIR', plugin_dir_path( BA_CHEETAH_FILE ) );
 			define( 'BA_CHEETAH_URL', plugins_url( '/', BA_CHEETAH_FILE ) );
 
-			define( 'BA_CHEETAH_LANDINGPAGE_URL', 'https://builderallbuilderpro.com' );
+			define( 'BA_CHEETAH_LANDINGPAGE_URL', 'http://builderall.com/plans' );
 			define( 'BA_CHEETAH_HELP_URL', get_locale() == 'pt_BR' ? 'https://ajuda.builderall.com/' : 'https://knowledgebase.builderall.com/' );
 			define( 'BA_CHEETAH_YOUTUBE_URL', get_locale() == 'pt_BR' ? 'https://www.youtube.com/channel/UCCDeKQkMbxm18nYpQbqBlGQ' : 'https://www.youtube.com/channel/UCRzQ11vg83JBagbO8piZH1A' );
 			define( 'BA_CHEETAH_DEMO_DOMAIN', 'builderallbuilderwp.builderall.com' );
