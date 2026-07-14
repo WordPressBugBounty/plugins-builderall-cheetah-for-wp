@@ -298,7 +298,7 @@ final class BACheetahModel {
 	 */
 	static public function get_link_url($path = '', $params = array())
 	{
-		$url = add_query_arg($params, get_rest_url(null, 'ba-cheetah/v1/oauth/redirect') . $path);
+		$url = add_query_arg($params, BACheetahAuthentication::get_oauth_action_url('redirect'));
 		return apply_filters('ba_cheetah_link_url', $url, $path);
 	}
 

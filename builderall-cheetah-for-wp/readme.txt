@@ -2,9 +2,9 @@
 Contributors: leandrogrando, mauriciotesta, silvioyamada, fmazetti, geovanacoelhoc, fmezzomo, wesleivid, guilhermebenso 
 Tags: page builder, cheetah, cheetah builder for wordpress, builderall wp, drag and drop editor
 Requires at least: 4.6
-Tested up to: 6.7.1
-Requires PHP: 5.6
-Stable tag: 3.0.1
+Tested up to: 7.0
+Requires PHP: 7.4
+Stable tag: 3.0.2
 License: GPL2+
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -38,6 +38,9 @@ Whether you’re a creator, entrepreneur, or small business owner, this plugin g
 6. Activating Canvas Mode
 
 == Changelog ==
+= 3.0.2 =
+* Fix: security fixes
+
 = 3.0.0 =
 * New: In addition to a page builder, the plugin now allows you to enable a bundle of marketing tools
 * Improvement: Better organization of menus and administrative tabs

@@ -17,8 +17,8 @@ add_action('rest_api_init', function () {
         'methods' => 'GET',
         'callback' => 'get_user_images',
         'permission_callback' => function () {
-            return true;
-        }
+            return current_user_can('upload_files');
+        },
     ));
 });
 
@@ -31,7 +31,7 @@ add_action( 'rest_api_init', function () {
             'methods'             => 'POST',
             'callback'            => 'builderall_images_download',
             'permission_callback' => function () {
-                return true;
+                return current_user_can('upload_files');
             },
         )
     );

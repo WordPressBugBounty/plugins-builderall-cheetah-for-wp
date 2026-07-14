@@ -11,35 +11,30 @@ final class BACheetahAuthentication
 		define('BA_CHEETAH_PRO_LIFETIME', self::has_pro_lifetime_access());
 		define('BA_CHEETAH_TOKEN', 'Qpe09cW1A3AWEH3DY5NPwMurWTOvgl75TyZavqFdUkibbdhQaXerOTNf3PHxrabxphoxuVOlfznE');
 
-		// Authorization route
+		// OAuth start/logout require an authenticated admin (admin-post + nonce).
+		add_action('admin_post_ba_cheetah_oauth_redirect', array(__CLASS__, 'handle_oauth_redirect'));
+		add_action('admin_post_ba_cheetah_oauth_logout', array(__CLASS__, 'handle_oauth_logout'));
+
+		// Callback must remain reachable by the Builderall IdP redirect; security is enforced via one-time state.
 		add_action('rest_api_init', function () {
-
-			register_rest_route('ba-cheetah/v1', '/oauth/redirect', array(
-				'methods' => 'GET',
-				'callback' => __CLASS__ . '::redirect',
-				'permission_callback' => '__return_true'
-			));
-
-			// Logout route
-			register_rest_route('ba-cheetah/v1', '/oauth/logout', array(
-				'methods' => 'GET',
-				'callback' => __CLASS__ . '::logout',
-				'permission_callback' => '__return_true'
-			));
-
-			// Callback route
 			register_rest_route('ba-cheetah/v1', '/oauth/callback', array(
 				'methods' => 'GET',
 				'callback' => __CLASS__ . '::oauthCallback',
 				'args' => array(
 					'token' => array(
-						'required' => true
+						'required' => true,
+						'sanitize_callback' => 'sanitize_text_field',
 					),
 					'state' => array(
-						'required' => true
-					)
+						'required' => true,
+						'sanitize_callback' => 'sanitize_text_field',
+					),
+					'site_id' => array(
+						'required' => false,
+						'sanitize_callback' => 'sanitize_text_field',
+					),
 				),
-				'permission_callback' => '__return_true'
+				'permission_callback' => '__return_true',
 			));
 		});
 
@@ -258,28 +253,138 @@ final class BACheetahAuthentication
 		add_action('ba_cheetah_pro_user', array('BACheetahAuthentication', 'check_user_level') );
 	}
 
+	/**
+	 * Build a nonce-protected admin-post URL for OAuth actions.
+	 *
+	 * @param string $action Either 'redirect' or 'logout'.
+	 * @return string
+	 */
+	static public function get_oauth_action_url($action = 'redirect')
+	{
+		$action = ('logout' === $action) ? 'logout' : 'redirect';
+		$hook   = 'ba_cheetah_oauth_' . $action;
+
+		return wp_nonce_url(
+			admin_url('admin-post.php?action=' . $hook),
+			$hook
+		);
+	}
+
+	/**
+	 * Transient key for a given OAuth state value.
+	 *
+	 * @param string $state
+	 * @return string
+	 */
+	static private function oauth_state_transient_key($state)
+	{
+		return 'ba_cheetah_oauth_state_' . $state;
+	}
+
+	/**
+	 * Verify admin capability and referer nonce for OAuth admin-post actions.
+	 *
+	 * @param string $nonce_action
+	 * @return void
+	 */
+	static private function assert_oauth_admin_request($nonce_action)
+	{
+		if (! BACheetahAdmin::current_user_can_access_settings()) {
+			wp_die(
+				esc_html__('You do not have permission to manage Builderall account linking.', 'ba-cheetah'),
+				esc_html__('Forbidden', 'ba-cheetah'),
+				array('response' => 403)
+			);
+		}
+
+		check_admin_referer($nonce_action);
+	}
+
+	/**
+	 * admin-post handler: start OAuth.
+	 *
+	 * @return void
+	 */
+	static public function handle_oauth_redirect()
+	{
+		self::assert_oauth_admin_request('ba_cheetah_oauth_redirect');
+		self::redirect();
+	}
+
+	/**
+	 * admin-post handler: unlink Builderall account.
+	 *
+	 * @return void
+	 */
+	static public function handle_oauth_logout()
+	{
+		self::assert_oauth_admin_request('ba_cheetah_oauth_logout');
+		self::logout();
+	}
+
+	/**
+	 * Persist and consume a one-time OAuth state bound to the initiating admin.
+	 *
+	 * @param string $state
+	 * @return array|false
+	 */
+	static private function consume_oauth_state($state)
+	{
+		if (! is_string($state) || '' === $state) {
+			return false;
+		}
+
+		$key  = self::oauth_state_transient_key($state);
+		$data = get_transient($key);
+
+		// Always consume (one-time), even if invalid/missing.
+		delete_transient($key);
+		delete_option('_ba_cheetah_request_state');
+
+		if (! is_array($data) || empty($data['user_id']) || empty($data['state'])) {
+			return false;
+		}
+
+		if (! hash_equals((string) $data['state'], $state)) {
+			return false;
+		}
+
+		return $data;
+	}
+
 	// Save token
 	static public function oauthCallback(WP_REST_Request $request)
 	{
-		if ($request['state'] === get_option('_ba_cheetah_request_state')) {
-			if(update_option('_ba_cheetah_access_token', $request['token'])) {
+		$state = sanitize_text_field((string) $request->get_param('state'));
+		$token = sanitize_text_field((string) $request->get_param('token'));
+		$site_id = sanitize_text_field((string) $request->get_param('site_id'));
 
-				// Site id
-				if(isset($request['site_id'])) {
-					update_option('_ba_cheetah_site_id', $request['site_id']);
-					self::getSiteId(true);
-				}
+		$state_data = self::consume_oauth_state($state);
+		if (false === $state_data) {
+			return new WP_Error('invalid_state', 'Invalid state', array('status' => 403));
+		}
 
-				self::check_user_level();
+		if ('' === $token) {
+			return new WP_Error('invalid_token', 'Invalid token', array('status' => 403));
+		}
 
-				wp_redirect(admin_url('admin.php?page=welcome-page'));
-				exit;
-			} else {
+		$existing = get_option('_ba_cheetah_access_token');
+		if ($existing !== $token) {
+			$updated = update_option('_ba_cheetah_access_token', $token);
+			if (! $updated) {
 				return new WP_Error('error_update_auth_token', 'Error to update Authentication Token', array('status' => 403));
 			}
 		}
 
-		return new WP_Error('invald_state', 'Invalid state', array('status' => 403));
+		if ('' !== $site_id) {
+			update_option('_ba_cheetah_site_id', $site_id);
+			self::getSiteId(true);
+		}
+
+		self::check_user_level();
+
+		wp_safe_redirect(admin_url('admin.php?page=welcome-page'));
+		exit;
 	}
 
 	/**
@@ -330,28 +435,46 @@ final class BACheetahAuthentication
 
 
 	/**
-	 * Redirects the user to the oauth screen passed as a token parameter
-	 * which is also saved in the database to check the bearer token from the panel
-	 * if the token was requested by that wordpress installation
+	 * Redirects the authenticated admin to the Builderall OAuth approval screen.
+	 * State is stored as a one-time transient bound to the current user.
 	 *
 	 * @return void
 	 */
 	static public function redirect()
 	{
+		if (function_exists('random_bytes')) {
+			$state = bin2hex(random_bytes(16));
+		} else {
+			$state = wp_generate_password(32, false);
+		}
 
-		$state = md5(uniqid(rand(), true));
-		update_option('_ba_cheetah_request_state', $state);
+		set_transient(
+			self::oauth_state_transient_key($state),
+			array(
+				'state'   => $state,
+				'user_id' => get_current_user_id(),
+				'created' => time(),
+			),
+			15 * MINUTE_IN_SECONDS
+		);
+
+		// Clear legacy site-wide option if present.
+		delete_option('_ba_cheetah_request_state');
+
+		$entity = get_bloginfo('name');
+		if ('' === $entity) {
+			$entity = get_bloginfo('url');
+		}
 
 		$query = http_build_query(array(
 			'state' => $state,
 			'redirect_url' => get_rest_url(null, 'ba-cheetah/v1/oauth/callback'),
-			'entity' => get_bloginfo('name') != null ? get_bloginfo('name') : get_bloginfo('url'),
+			'entity' => $entity,
 			'cancel_url' => get_admin_url(null, 'admin.php?page=ba-cheetah-settings#welcome'),
-			'site_id' => get_option('_ba_cheetah_site_id')
+			'site_id' => get_option('_ba_cheetah_site_id'),
 		));
 
 		wp_redirect(BA_CHEETAH_DASHBOARD_URL . 'oauth/approval?' . $query);
-
 		exit;
 	}
 
@@ -468,7 +591,7 @@ final class BACheetahAuthentication
 			'<p class="buttons">
 				<a href="%s" class="button button-primary enable-stats">%s</a>&nbsp;
 			</p>',
-			get_rest_url(null, 'ba-cheetah/v1/oauth/redirect'),
+			esc_url(self::get_oauth_action_url('redirect')),
 			__("Link account", 'ba-cheetah')
 		);
 

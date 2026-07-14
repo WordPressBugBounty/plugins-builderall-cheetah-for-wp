@@ -82,21 +82,45 @@ class BACheetahSupercheckout
 	}
 
 	static public function init() {
-		add_action('rest_api_init', function () {
-			register_rest_route('ba-cheetah/v1', '/redirect-supercheckout', array(
-				'methods' => 'GET',
-				'callback' => __CLASS__ . '::redirect',
-				'permission_callback' => function () {
-					return true;
-				}
-			));
-		});
+		add_action('admin_post_ba_cheetah_supercheckout_redirect', array(__CLASS__, 'handle_admin_redirect'));
+	}
+
+	/**
+	 * Nonce-protected URL to open Supercheckout in a new tab.
+	 *
+	 * @return string
+	 */
+	static public function get_redirect_url()
+	{
+		return wp_nonce_url(
+			admin_url('admin-post.php?action=ba_cheetah_supercheckout_redirect'),
+			'ba_cheetah_supercheckout_redirect'
+		);
+	}
+
+	/**
+	 * admin-post handler for Supercheckout SSO redirect.
+	 *
+	 * @return void
+	 */
+	static public function handle_admin_redirect()
+	{
+		if (! current_user_can('edit_posts')) {
+			wp_die(
+				esc_html__('You do not have permission to access Supercheckout.', 'ba-cheetah'),
+				esc_html__('Forbidden', 'ba-cheetah'),
+				array('response' => 403)
+			);
+		}
+
+		check_admin_referer('ba_cheetah_supercheckout_redirect');
+		self::redirect();
 	}
 
 	static public function redirect() {
 
 		$token = BACheetahSupercheckout::getToken();
-		$url = 'https://s-checkout.builderall.com/?token=' . urlencode($token);
+		$url = 'https://s-checkout.builderall.com/?token=' . rawurlencode((string) $token);
 		wp_redirect($url);
 		exit;
 		

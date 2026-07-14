@@ -61,7 +61,7 @@ BACheetah::register_module('BACheetahSupercheckoutModule', array(
 					'raw' => array(
 						'type' => 'raw',
 						'content' => '<br><br>
-							<a href="'. esc_url(rest_url('ba-cheetah/v1/redirect-supercheckout')) . '" id="supercheckout-login" target="_blank" class="ba-cheetah-button ba-cheetah-button-primary">'
+							<a href="'. esc_url(BACheetahSupercheckout::get_redirect_url()) . '" id="supercheckout-login" target="_blank" class="ba-cheetah-button ba-cheetah-button-primary">'
 							. __('Manage my products', 'ba-cheetah') .
 							'<i style="margin-left: 8px" class="fas fa-external-link-alt"></i>' .
 							'</a>'

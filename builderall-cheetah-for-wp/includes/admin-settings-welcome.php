@@ -1,5 +1,5 @@
 <?php
-$license_url = get_rest_url(null, 'ba-cheetah/v1/oauth/redirect');
+$license_url = BACheetahAuthentication::get_oauth_action_url('redirect');
 $office_url = BA_CHEETAH_OFFICE_URL;
 $changelog_url = 'https://wordpress.org/plugins/builderall-cheetah-for-wp/#developers';
 ?>

@@ -31,12 +31,12 @@
 
 		<div class="ba-text-ai-center ba-text-width ba-mg-t-1 supercharge-buttons ba-jc-center ba-ai-center">
 			<?php if ($showLinkButton) : ?>
-				<a href="<?= get_rest_url(null, 'ba-cheetah/v1/oauth/redirect'); ?>">
+				<a href="<?php echo esc_url(BACheetahAuthentication::get_oauth_action_url('redirect')); ?>">
 					<?= __('LINK BUILDERALL ACCOUNT', 'ba-cheetah'); ?>
 				</a>
 			<?php endif; ?>
 			<?php if ($showUnlinkButton) : ?>
-				<a href="<?= get_rest_url(null, 'ba-cheetah/v1/oauth/logout'); ?>" class="unlink" onclick="return confirm('<?= __('By unlinking your account you will lose access to all Builderall Integrations, do you want to continue?', 'ba-cheetah'); ?>')"><?= __('UNLINK MY BUILDERALL ACCOUNT', 'ba-cheetah'); ?></a>
+				<a href="<?php echo esc_url(BACheetahAuthentication::get_oauth_action_url('logout')); ?>" class="unlink" onclick="return confirm('<?= __('By unlinking your account you will lose access to all Builderall Integrations, do you want to continue?', 'ba-cheetah'); ?>')"><?= __('UNLINK MY BUILDERALL ACCOUNT', 'ba-cheetah'); ?></a>
 			<?php endif; ?>
 			<?php if ($showLinkButton) : ?>
 				<div class="ba-font-syne ba-font-21 ba-font-bold">

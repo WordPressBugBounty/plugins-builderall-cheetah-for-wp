@@ -80,7 +80,7 @@
 					<?php _e('OR') ?>
 				</div>
 				<?php if ($showLinkButton) : ?>
-					<a href="<?= get_rest_url(null, 'ba-cheetah/v1/oauth/redirect'); ?>">
+					<a href="<?php echo esc_url(BACheetahAuthentication::get_oauth_action_url('redirect')); ?>">
 						<?= __('LINK BUILDERALL ACCOUNT', 'ba-cheetah'); ?>
 					</a>
 				<?php endif; ?>
